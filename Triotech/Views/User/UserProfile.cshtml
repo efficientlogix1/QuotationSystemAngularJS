@@ -1,0 +1,234 @@
+﻿@model DAL.AspNetUser
+
+@{
+    ViewBag.Title = "User Profile";
+}
+<h4>
+    Email: @Model.Email
+</h4>
+<hr />
+@using (Html.BeginForm("UserProfile", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(s => s.Id)
+    <div class="row">
+        <div class="form-group col-md-6">
+            First Name
+            @Html.TextBoxFor(s => s.FirstName, new { @class = "form-control", @placeholder = "First Name" })
+            <span class="has-danger">
+                @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "form-control-feedback" })
+            </span>
+        </div>
+        <div class="form-group col-md-6">
+            Last Name
+            @Html.TextBoxFor(s => s.LastName, new { @class = "form-control", @placeholder = "Last Name" })
+            <span class="has-danger">
+                @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "form-control-feedback" })
+            </span>
+        </div>
+        @*</div>
+            <br />
+            <div class="row">*@
+
+
+        <div class="form-group col-md-6">
+            Phone Number
+            @Html.TextBoxFor(s => s.PhoneNumber, new { @class = "form-control", @placeholder = "Phone Number" })
+            <span class="has-danger">
+                @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "form-control-feedback" })
+            </span>
+        </div>
+        @*</div>
+            <br />
+            <div class="row">*@
+        <div class="form-group col-md-6">
+            Country
+            @Html.TextBoxFor(s => s.Country, new { @class = "form-control", @placeholder = "Country" })
+            <span class="has-danger">
+                @Html.ValidationMessageFor(m => m.Country, "", new { @class = "form-control-feedback" })
+            </span>
+        </div>
+        <div class="form-group col-md-6">
+            State
+            @Html.TextBoxFor(s => s.State, new { @class = "form-control", @placeholder = "State" })
+            <span class="has-danger">
+                @Html.ValidationMessageFor(m => m.State, "", new { @class = "form-control-feedback" })
+            </span>
+        </div>
+        <div class="form-group col-md-6">
+            City
+            @Html.TextBoxFor(s => s.City, new { @class = "form-control", @placeholder = "City" })
+            <span class="has-danger">
+                @Html.ValidationMessageFor(m => m.City, "", new { @class = "form-control-feedback" })
+            </span>
+        </div>
+        <div class="form-group col-md-6">
+            Street
+            @Html.TextBoxFor(s => s.Street, new { @class = "form-control", @placeholder = "Street" })
+            <span class="has-danger">
+                @Html.ValidationMessageFor(m => m.Street, "", new { @class = "form-control-feedback" })
+            </span>
+        </div>
+        <div class="form-group col-md-6">
+            Near
+            @Html.TextBoxFor(s => s.Near, new { @class = "form-control", @placeholder = "Near" })
+            <span class="has-danger">
+                @Html.ValidationMessageFor(m => m.Near, "", new { @class = "form-control-feedback" })
+            </span>
+        </div>
+        <div class="form-group col-md-6">
+            Profile Picture
+            <input type="file" name="postedFile" accept=".png,.jpg,.jpeg" id="fileUpload" class="form-control" onchange="readurl(this)" value="" />
+            <span class="has-danger">
+                @Html.ValidationMessageFor(m => m.Photo, "", new { @class = "form-control-feedback" })
+            </span>
+            <br />
+            @if (!String.IsNullOrEmpty(Model.Photo))
+            {
+                <img src="/Content/images/ProfilePicture/@Model.Photo" id="profilePhoto" height="100" width="100" alt="Profile Photo" />
+            }
+            @*<object data="/Assets/images/VendorNDAFile/Challanform.pdf" type="application/x-pdf" title="SamplePdf" width="500" height="720">
+                    <a href="/Assets/images/VendorNDAFile/Challanform.pdf"><img src="/Assets/images/pdf-icon.png" id="ndaFile" height="100" width="100" alt="PDF File" onclick="" /></a>
+                </object>*@
+            @*<iframe src="/Assets/images/VendorNDAFile/Challanform.pdf&embedded=true" style="width:718px; height:700px;" frameborder="0"></iframe>*@
+
+            @*<embed src="/Assets/images/VendorNDAFile/Challanform.pdf" type="application/pdf" width="100" height="600" />*@
+        </div>
+        @if (Model.RoleId == 2)
+        {
+            <div class="form-group col-md-6">
+                NDA File
+                @if (User.IsInRole("Vendor"))
+                {
+                    <input type="file" name="pdfFile" accept=".pdf" id="fileUploadPdf" class="form-control" onchange="readurl(this)" value="" />
+                    <br />
+
+                }
+                @{
+                    string path = Server.MapPath("~/Content/images/VendorNDAFile");
+                    var IsFile = System.IO.File.Exists(path + "/" + Model.NDAFile);
+                }
+                @if (IsFile)
+                {
+                    <a onclick="CheckType(this)" data-fileName="@Model.NDAFile"><img src="/Assets/images/pdf-icon.png" id="ndaFile" height="100" width="100" alt="PDF File" onclick="" /></a>
+                }
+            </div>
+            <div class="form-group col-md-6">
+                Company Registeration:
+                @Html.TextBoxFor(s => s.CompanyRegisteration, new { @class = "form-control", @placeholder = "Company Registeration" })
+                <span class="has-danger">
+                    @Html.ValidationMessageFor(m => m.CompanyRegisteration, "", new { @class = "form-control-feedback" })
+                </span>
+            </div>
+            <div class="form-group col-md-6">
+                Company Profile:
+                @Html.TextBoxFor(s => s.CompanyProfile, new { @class = "form-control", @placeholder = "Company Profile" })
+                <span class="has-danger">
+                    @Html.ValidationMessageFor(m => m.CompanyProfile, "", new { @class = "form-control-feedback" })
+                </span>
+            </div>
+        }
+        @if (User.IsInRole("Admin") && (new Triotech.Models.GenericModel()).FetchUserProfile().Id != Model.Id)
+        {
+            if (Model.RoleId != 1)
+            {
+
+                <div class="col-md-6">
+                    Select Expiry Credential Date:
+                    <div class="input-group">
+                        @Html.TextBoxFor(s => s.StrExpiryDate, new { @class = "form-control", @placeholder = "Select Expiry Date", @required = "required", @readonly = "readonly" })
+                        <span class="input-group-addon"> <i class="fa fa-calendar"></i> </span>
+                    </div>
+                </div>
+                <script>
+                    $('#StrExpiryDate').datepicker({
+                        autoclose: true,
+                        format: 'dd-mm-yyyy'
+                    });
+
+                </script>
+
+            }
+            <div class="col-md-6">
+                Status:
+                @Html.CheckBoxFor(s => s.IsActive)
+
+            </div>
+            if (Model.RoleId == 2)
+            {
+
+                <div class="col-md-6">
+                    Payment Terms:
+                    <label class="radio-inline">
+                        @Html.RadioButtonFor(m => m.PaymentTerms, "30 days", new { @class = "square-purple" })
+                        30 days
+                    </label>
+                    <label class="radio-inline">
+                        @Html.RadioButtonFor(m => m.PaymentTerms, "60 days", new { @class = "square-purple" })
+                        60 days
+                    </label>
+                    <label class="radio-inline">
+                        @Html.RadioButtonFor(m => m.PaymentTerms, "60 days", new { @class = "square-purple" })
+                        90 days
+                    </label>
+                </div>
+
+            }
+
+        }
+
+    </div>
+    <br />
+    <div class="row">
+        <div class="form-group col-md-12">
+            <input type="submit" class="btn btn-primary pull-right" name="name" value="Save" />
+        </div>
+    </div>
+}
+<!-- Angular File for User Setup-->
+@*<script src="~/AngularJS/User/UserProfile.js"></script>*@
+<!-- 2 columns form -->
+
+<script>
+    function readurl(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            var mimeType = input.files[0]['type'];
+            if (input.id == 'fileUploadPdf') {
+                if (mimeType.split('/')[1].trim() == 'pdf') {
+                    reader.onload = function (e) {
+                        //if ($('#VendorPdfFile').css('display') == 'none') {
+                        //    $('#VendorPdfFile').css('display', '');
+                        //}
+                        //$('#VendorPdfFile').attr('href', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+                else {
+                    $("#" + input.id + '').val('');
+                    ErrorMessage('Please select pdf file only');
+                }
+            }
+            else {
+                if (mimeType.split('/')[0] == 'image') {
+                    reader.onload = function (e) {
+                        $('#profilePhoto').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+                else {
+                    $("#" + input.id + '').val('');
+                    ErrorMessage('Please select image file only');
+                }
+            }
+
+
+        }
+    }
+    function CheckType(event)
+    {
+        window.open('/user/GetPdf?filename=' + $(event).attr('data-filename'), "_blank");
+    }
+    function downloadExcel(event) {
+        window.open('/user/GetExcel=' + $(event).attr('data-filename'), "_blank");
+    }
+</script>

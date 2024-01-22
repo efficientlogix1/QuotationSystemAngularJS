@@ -1,0 +1,2738 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TriotechDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ActivityLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Action" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="Detail" Type="nvarchar(max)" />
+          <Property Name="RecordId" Type="bigint" />
+          <Property Name="TableName" Type="nvarchar" MaxLength="250" />
+          <Property Name="User_Id" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Photo" Type="nvarchar" MaxLength="500" />
+          <Property Name="DeleteFlag" Type="int" />
+          <Property Name="CreatedTime" Type="datetime" />
+          <Property Name="UpdatedTime" Type="datetime" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Street" Type="nvarchar(max)" />
+          <Property Name="Near" Type="nvarchar(max)" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="PaymentTerms" Type="nvarchar" MaxLength="10" />
+          <Property Name="ExpiryDate" Type="datetime" />
+          <Property Name="NDAFile" Type="nvarchar(max)" />
+          <Property Name="CompanyRegisteration" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyProfile" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsEmailSent" Type="bit" />
+        </EntityType>
+        <EntityType Name="BuyerRequest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BuyerID" Type="int" Nullable="false" />
+          <Property Name="RequestID" Type="int" Nullable="false" />
+          <Property Name="StatusID" Type="int" Nullable="false" />
+          <Property Name="BuyerDescription" Type="nvarchar(max)" />
+          <Property Name="BuyerPrice" Type="float" />
+          <Property Name="QoutationDate" Type="datetime" />
+          <Property Name="ActionID" Type="int" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmailTemplate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="From" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="To" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="CC" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="BCC" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MessageBody" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateBy" Type="int" Nullable="false" />
+          <Property Name="UpdateBy" Type="int" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="TemplateUrl" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderManagementRequest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RequestDate" Type="datetime" Nullable="false" />
+          <Property Name="RequestStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhoneExtID" Type="int" Nullable="false" />
+          <Property Name="DepartmenttID" Type="int" Nullable="false" />
+          <Property Name="LocationID" Type="int" Nullable="false" />
+          <Property Name="PriorityID" Type="int" Nullable="false" />
+          <Property Name="TermOfServiceID" Type="int" Nullable="false" />
+          <Property Name="SupervisorID" Type="int" Nullable="false" />
+          <Property Name="RequesterID" Type="int" Nullable="false" />
+          <Property Name="RequesterComment" Type="nvarchar(max)" />
+          <Property Name="SupervisorComment" Type="nvarchar(max)" />
+          <Property Name="ManagementComment" Type="nvarchar(max)" />
+          <Property Name="RequestTittle" Type="nvarchar" MaxLength="100" />
+          <Property Name="CEOComment" Type="nvarchar(max)" />
+          <Property Name="ManagementID" Type="int" Nullable="false" />
+          <Property Name="FinalApprovalID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderRequest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="RequestDate" Type="datetime" Nullable="false" />
+          <Property Name="RequesterDescription" Type="nvarchar(max)" />
+          <Property Name="RequesterID" Type="int" Nullable="false" />
+          <Property Name="ActionID" Type="int" />
+        </EntityType>
+        <EntityType Name="OrderRequestAction">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderRequestStatus">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhoneExt">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Priority">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductRequest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="RequestID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RequesterRequest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BuyerID" Type="int" Nullable="false" />
+          <Property Name="RequestID" Type="int" Nullable="false" />
+          <Property Name="ActionID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TermsOfService">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VendorRequest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VendorID" Type="int" Nullable="false" />
+          <Property Name="BuyerRequestID" Type="int" Nullable="false" />
+          <Property Name="StatusID" Type="int" Nullable="false" />
+          <Property Name="Qoutation1" Type="float" />
+          <Property Name="Qoutation2" Type="float" />
+          <Property Name="Qoutation3" Type="float" />
+          <Property Name="VendorDescription" Type="nvarchar(max)" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+          <Property Name="QoutationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Visitor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IpAddress" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="VisitTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AspNetUsers_AspNetRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuyerRequest_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="BuyerRequest" Type="Self.BuyerRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BuyerRequest">
+              <PropertyRef Name="BuyerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuyerRequest_OrderRequest">
+          <End Role="OrderRequest" Type="Self.OrderRequest" Multiplicity="1" />
+          <End Role="BuyerRequest" Type="Self.BuyerRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderRequest">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BuyerRequest">
+              <PropertyRef Name="RequestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuyerRequest_OrderRequestAction">
+          <End Role="OrderRequestAction" Type="Self.OrderRequestAction" Multiplicity="0..1" />
+          <End Role="BuyerRequest" Type="Self.BuyerRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderRequestAction">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BuyerRequest">
+              <PropertyRef Name="ActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuyerRequest_OrderRequestStatus">
+          <End Role="OrderRequestStatus" Type="Self.OrderRequestStatus" Multiplicity="1" />
+          <End Role="BuyerRequest" Type="Self.BuyerRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderRequestStatus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BuyerRequest">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderManagementRequest_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="OrderManagementRequest" Type="Self.OrderManagementRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderManagementRequest">
+              <PropertyRef Name="SupervisorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderManagementRequest_AspNetUsers1">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="OrderManagementRequest" Type="Self.OrderManagementRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderManagementRequest">
+              <PropertyRef Name="RequesterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderManagementRequest_AspNetUsers2">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="OrderManagementRequest" Type="Self.OrderManagementRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderManagementRequest">
+              <PropertyRef Name="ManagementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderManagementRequest_AspNetUsers3">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="OrderManagementRequest" Type="Self.OrderManagementRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderManagementRequest">
+              <PropertyRef Name="FinalApprovalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderManagementRequest_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="1" />
+          <End Role="OrderManagementRequest" Type="Self.OrderManagementRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderManagementRequest">
+              <PropertyRef Name="DepartmenttID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderManagementRequest_Location">
+          <End Role="Location" Type="Self.Location" Multiplicity="1" />
+          <End Role="OrderManagementRequest" Type="Self.OrderManagementRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderManagementRequest">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderManagementRequest_PhoneExt">
+          <End Role="PhoneExt" Type="Self.PhoneExt" Multiplicity="1" />
+          <End Role="OrderManagementRequest" Type="Self.OrderManagementRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhoneExt">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderManagementRequest">
+              <PropertyRef Name="PhoneExtID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderManagementRequest_Priority">
+          <End Role="Priority" Type="Self.Priority" Multiplicity="1" />
+          <End Role="OrderManagementRequest" Type="Self.OrderManagementRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Priority">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderManagementRequest">
+              <PropertyRef Name="PriorityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderManagementRequest_TermsOfService">
+          <End Role="TermsOfService" Type="Self.TermsOfService" Multiplicity="1" />
+          <End Role="OrderManagementRequest" Type="Self.OrderManagementRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TermsOfService">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderManagementRequest">
+              <PropertyRef Name="TermOfServiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderRequest_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="OrderRequest" Type="Self.OrderRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderRequest">
+              <PropertyRef Name="RequesterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderRequest_OrderRequestAction">
+          <End Role="OrderRequestAction" Type="Self.OrderRequestAction" Multiplicity="0..1" />
+          <End Role="OrderRequest" Type="Self.OrderRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderRequestAction">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderRequest">
+              <PropertyRef Name="ActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductRequest_OrderRequest">
+          <End Role="OrderRequest" Type="Self.OrderRequest" Multiplicity="1" />
+          <End Role="ProductRequest" Type="Self.ProductRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderRequest">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductRequest">
+              <PropertyRef Name="RequestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductRequest_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductRequest" Type="Self.ProductRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductRequest">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RequesterRequest_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="RequesterRequest" Type="Self.RequesterRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RequesterRequest">
+              <PropertyRef Name="BuyerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RequesterRequest_OrderRequest">
+          <End Role="OrderRequest" Type="Self.OrderRequest" Multiplicity="1" />
+          <End Role="RequesterRequest" Type="Self.RequesterRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderRequest">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RequesterRequest">
+              <PropertyRef Name="RequestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RequesterRequest_OrderRequestAction">
+          <End Role="OrderRequestAction" Type="Self.OrderRequestAction" Multiplicity="1" />
+          <End Role="RequesterRequest" Type="Self.RequesterRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderRequestAction">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RequesterRequest">
+              <PropertyRef Name="ActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VendorRequest_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="VendorRequest" Type="Self.VendorRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VendorRequest">
+              <PropertyRef Name="VendorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VendorRequest_BuyerRequest">
+          <End Role="BuyerRequest" Type="Self.BuyerRequest" Multiplicity="1" />
+          <End Role="VendorRequest" Type="Self.VendorRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BuyerRequest">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VendorRequest">
+              <PropertyRef Name="BuyerRequestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VendorRequest_OrderRequestStatus">
+          <End Role="OrderRequestStatus" Type="Self.OrderRequestStatus" Multiplicity="1" />
+          <End Role="VendorRequest" Type="Self.VendorRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderRequestStatus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VendorRequest">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="FetchActivityLog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DisplayLength" Type="int" Mode="In" />
+          <Parameter Name="DisplayStart" Type="int" Mode="In" />
+          <Parameter Name="SortCol" Type="int" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+          <Parameter Name="RecordStartDate" Type="datetime" Mode="In" />
+          <Parameter Name="RecordDateEndDate" Type="datetime" Mode="In" />
+          <Parameter Name="Search" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="FetchAdminOrderRequests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DisplayLength" Type="int" Mode="In" />
+          <Parameter Name="DisplayStart" Type="int" Mode="In" />
+          <Parameter Name="SortCol" Type="int" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+          <Parameter Name="ActionID" Type="int" Mode="In" />
+          <Parameter Name="StatusID" Type="int" Mode="In" />
+          <Parameter Name="Search" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="FetchBuyerBusinessRecord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DisplayLength" Type="int" Mode="In" />
+          <Parameter Name="DisplayStart" Type="int" Mode="In" />
+          <Parameter Name="SortCol" Type="int" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+          <Parameter Name="StatusID" Type="int" Mode="In" />
+          <Parameter Name="BuyerID" Type="int" Mode="In" />
+          <Parameter Name="Search" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="FetchBuyerPendingOrderRequests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DisplayLength" Type="int" Mode="In" />
+          <Parameter Name="DisplayStart" Type="int" Mode="In" />
+          <Parameter Name="SortCol" Type="int" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+          <Parameter Name="ActionID" Type="int" Mode="In" />
+          <Parameter Name="StatusID" Type="int" Mode="In" />
+          <Parameter Name="BuyerID" Type="int" Mode="In" />
+          <Parameter Name="Search" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="FetchBuyerSentOrderRequests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DisplayLength" Type="int" Mode="In" />
+          <Parameter Name="DisplayStart" Type="int" Mode="In" />
+          <Parameter Name="SortCol" Type="int" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+          <Parameter Name="StatusID" Type="int" Mode="In" />
+          <Parameter Name="BuyerID" Type="int" Mode="In" />
+          <Parameter Name="Search" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="FetchCategories" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DisplayLength" Type="int" Mode="In" />
+          <Parameter Name="DisplayStart" Type="int" Mode="In" />
+          <Parameter Name="SortCol" Type="int" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+          <Parameter Name="Search" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Active" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="FetchCompleteRequesterRequestList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DisplayLength" Type="int" Mode="In" />
+          <Parameter Name="DisplayStart" Type="int" Mode="In" />
+          <Parameter Name="SortCol" Type="int" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+          <Parameter Name="Search" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Status" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="FetchDepartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DisplayLength" Type="int" Mode="In" />
+          <Parameter Name="DisplayStart" Type="int" Mode="In" />
+          <Parameter Name="SortCol" Type="int" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+          <Parameter Name="Search" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Active" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="FetchFinalAprovalOrderManagementRequests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DisplayLength" Type="int" Mode="In" />
+          <Parameter Name="DisplayStart" Type="int" Mode="In" />
+          <Parameter Name="SortCol" Type="int" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+          <Parameter Name="Search" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Status" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="FinalApprovalID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="FetchLocation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DisplayLength" Type="int" Mode="In" />
+          <Parameter Name="DisplayStart" Type="int" Mode="In" />
+          <Parameter Name="SortCol" Type="int" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+          <Parameter Name="Search" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Active" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="FetchManagementOrderManagementRequests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DisplayLength" Type="int" Mode="In" />
+          <Parameter Name="DisplayStart" Type="int" Mode="In" />
+          <Parameter Name="SortCol" Type="int" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+          <Parameter Name="Search" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Status" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="ManagementID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="FetchPhoneExt" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DisplayLength" Type="int" Mode="In" />
+          <Parameter Name="DisplayStart" Type="int" Mode="In" />
+          <Parameter Name="SortCol" Type="int" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+          <Parameter Name="Search" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Active" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="FetchPriority" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DisplayLength" Type="int" Mode="In" />
+          <Parameter Name="DisplayStart" Type="int" Mode="In" />
+          <Parameter Name="SortCol" Type="int" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+          <Parameter Name="Search" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Active" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="FetchProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DisplayLength" Type="int" Mode="In" />
+          <Parameter Name="DisplayStart" Type="int" Mode="In" />
+          <Parameter Name="SortCol" Type="int" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+          <Parameter Name="CategoryID" Type="int" Mode="In" />
+          <Parameter Name="Search" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Active" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="FetchRequesterOrderManagementRequests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DisplayLength" Type="int" Mode="In" />
+          <Parameter Name="DisplayStart" Type="int" Mode="In" />
+          <Parameter Name="SortCol" Type="int" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+          <Parameter Name="RequesterID" Type="int" Mode="In" />
+          <Parameter Name="Search" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Status" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="FetchRequesterOrderRequests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DisplayLength" Type="int" Mode="In" />
+          <Parameter Name="DisplayStart" Type="int" Mode="In" />
+          <Parameter Name="SortCol" Type="int" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+          <Parameter Name="ActionID" Type="int" Mode="In" />
+          <Parameter Name="StatusID" Type="int" Mode="In" />
+          <Parameter Name="Requester" Type="int" Mode="In" />
+          <Parameter Name="Search" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="FetchSupervisorOrderManagementRequests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DisplayLength" Type="int" Mode="In" />
+          <Parameter Name="DisplayStart" Type="int" Mode="In" />
+          <Parameter Name="SortCol" Type="int" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+          <Parameter Name="SupervisorID" Type="int" Mode="In" />
+          <Parameter Name="Search" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Status" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="FetchTermOfServices" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DisplayLength" Type="int" Mode="In" />
+          <Parameter Name="DisplayStart" Type="int" Mode="In" />
+          <Parameter Name="SortCol" Type="int" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+          <Parameter Name="Search" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Active" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="FetchUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DisplayLength" Type="int" Mode="In" />
+          <Parameter Name="DisplayStart" Type="int" Mode="In" />
+          <Parameter Name="SortCol" Type="int" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+          <Parameter Name="CurrentUserId" Type="int" Mode="In" />
+          <Parameter Name="RoleID" Type="int" Mode="In" />
+          <Parameter Name="Search" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Active" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="FetchVendorOrderRequests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DisplayLength" Type="int" Mode="In" />
+          <Parameter Name="DisplayStart" Type="int" Mode="In" />
+          <Parameter Name="SortCol" Type="int" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+          <Parameter Name="ActionID" Type="int" Mode="In" />
+          <Parameter Name="StatusID" Type="int" Mode="In" />
+          <Parameter Name="VendorID" Type="int" Mode="In" />
+          <Parameter Name="Search" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="FetchVisitor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DisplayLength" Type="int" Mode="In" />
+          <Parameter Name="DisplayStart" Type="int" Mode="In" />
+          <Parameter Name="SortCol" Type="int" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+          <Parameter Name="Search" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="InsertCategoryByExcelFile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CategoryNumber" Type="nvarchar" Mode="In" />
+          <Parameter Name="CategoryName" Type="nvarchar" Mode="In" />
+          <Parameter Name="CategoryType" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <EntityContainer Name="TriotechDbModelStoreContainer">
+          <EntitySet Name="ActivityLog" EntityType="Self.ActivityLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BuyerRequest" EntityType="Self.BuyerRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmailTemplate" EntityType="Self.EmailTemplate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderManagementRequest" EntityType="Self.OrderManagementRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderRequest" EntityType="Self.OrderRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderRequestAction" EntityType="Self.OrderRequestAction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderRequestStatus" EntityType="Self.OrderRequestStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhoneExt" EntityType="Self.PhoneExt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Priority" EntityType="Self.Priority" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductRequest" EntityType="Self.ProductRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RequesterRequest" EntityType="Self.RequesterRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TermsOfService" EntityType="Self.TermsOfService" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VendorRequest" EntityType="Self.VendorRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Visitor" EntityType="Self.Visitor" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AspNetUsers_AspNetRoles" Association="Self.FK_AspNetUsers_AspNetRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuyerRequest_AspNetUsers" Association="Self.FK_BuyerRequest_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="BuyerRequest" EntitySet="BuyerRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuyerRequest_OrderRequest" Association="Self.FK_BuyerRequest_OrderRequest">
+            <End Role="OrderRequest" EntitySet="OrderRequest" />
+            <End Role="BuyerRequest" EntitySet="BuyerRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuyerRequest_OrderRequestAction" Association="Self.FK_BuyerRequest_OrderRequestAction">
+            <End Role="OrderRequestAction" EntitySet="OrderRequestAction" />
+            <End Role="BuyerRequest" EntitySet="BuyerRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuyerRequest_OrderRequestStatus" Association="Self.FK_BuyerRequest_OrderRequestStatus">
+            <End Role="OrderRequestStatus" EntitySet="OrderRequestStatus" />
+            <End Role="BuyerRequest" EntitySet="BuyerRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderManagementRequest_AspNetUsers" Association="Self.FK_OrderManagementRequest_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="OrderManagementRequest" EntitySet="OrderManagementRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderManagementRequest_AspNetUsers1" Association="Self.FK_OrderManagementRequest_AspNetUsers1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="OrderManagementRequest" EntitySet="OrderManagementRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderManagementRequest_AspNetUsers2" Association="Self.FK_OrderManagementRequest_AspNetUsers2">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="OrderManagementRequest" EntitySet="OrderManagementRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderManagementRequest_AspNetUsers3" Association="Self.FK_OrderManagementRequest_AspNetUsers3">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="OrderManagementRequest" EntitySet="OrderManagementRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderManagementRequest_Department" Association="Self.FK_OrderManagementRequest_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="OrderManagementRequest" EntitySet="OrderManagementRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderManagementRequest_Location" Association="Self.FK_OrderManagementRequest_Location">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="OrderManagementRequest" EntitySet="OrderManagementRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderManagementRequest_PhoneExt" Association="Self.FK_OrderManagementRequest_PhoneExt">
+            <End Role="PhoneExt" EntitySet="PhoneExt" />
+            <End Role="OrderManagementRequest" EntitySet="OrderManagementRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderManagementRequest_Priority" Association="Self.FK_OrderManagementRequest_Priority">
+            <End Role="Priority" EntitySet="Priority" />
+            <End Role="OrderManagementRequest" EntitySet="OrderManagementRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderManagementRequest_TermsOfService" Association="Self.FK_OrderManagementRequest_TermsOfService">
+            <End Role="TermsOfService" EntitySet="TermsOfService" />
+            <End Role="OrderManagementRequest" EntitySet="OrderManagementRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderRequest_AspNetUsers" Association="Self.FK_OrderRequest_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="OrderRequest" EntitySet="OrderRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderRequest_OrderRequestAction" Association="Self.FK_OrderRequest_OrderRequestAction">
+            <End Role="OrderRequestAction" EntitySet="OrderRequestAction" />
+            <End Role="OrderRequest" EntitySet="OrderRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductRequest_OrderRequest" Association="Self.FK_ProductRequest_OrderRequest">
+            <End Role="OrderRequest" EntitySet="OrderRequest" />
+            <End Role="ProductRequest" EntitySet="ProductRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductRequest_Product" Association="Self.FK_ProductRequest_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductRequest" EntitySet="ProductRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RequesterRequest_AspNetUsers" Association="Self.FK_RequesterRequest_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="RequesterRequest" EntitySet="RequesterRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RequesterRequest_OrderRequest" Association="Self.FK_RequesterRequest_OrderRequest">
+            <End Role="OrderRequest" EntitySet="OrderRequest" />
+            <End Role="RequesterRequest" EntitySet="RequesterRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RequesterRequest_OrderRequestAction" Association="Self.FK_RequesterRequest_OrderRequestAction">
+            <End Role="OrderRequestAction" EntitySet="OrderRequestAction" />
+            <End Role="RequesterRequest" EntitySet="RequesterRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VendorRequest_AspNetUsers" Association="Self.FK_VendorRequest_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="VendorRequest" EntitySet="VendorRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VendorRequest_BuyerRequest" Association="Self.FK_VendorRequest_BuyerRequest">
+            <End Role="BuyerRequest" EntitySet="BuyerRequest" />
+            <End Role="VendorRequest" EntitySet="VendorRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VendorRequest_OrderRequestStatus" Association="Self.FK_VendorRequest_OrderRequestStatus">
+            <End Role="OrderRequestStatus" EntitySet="OrderRequestStatus" />
+            <End Role="VendorRequest" EntitySet="VendorRequest" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TriotechDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TriotechDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ActivityLogs" EntityType="TriotechDbModel.ActivityLog" />
+          <EntitySet Name="AspNetRoles" EntityType="TriotechDbModel.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="TriotechDbModel.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="TriotechDbModel.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="TriotechDbModel.AspNetUser" />
+          <EntitySet Name="BuyerRequests" EntityType="TriotechDbModel.BuyerRequest" />
+          <EntitySet Name="EmailTemplates" EntityType="TriotechDbModel.EmailTemplate" />
+          <EntitySet Name="OrderRequests" EntityType="TriotechDbModel.OrderRequest" />
+          <EntitySet Name="OrderRequestActions" EntityType="TriotechDbModel.OrderRequestAction" />
+          <EntitySet Name="OrderRequestStatus" EntityType="TriotechDbModel.OrderRequestStatu" />
+          <EntitySet Name="Products" EntityType="TriotechDbModel.Product" />
+          <EntitySet Name="ProductRequests" EntityType="TriotechDbModel.ProductRequest" />
+          <EntitySet Name="RequesterRequests" EntityType="TriotechDbModel.RequesterRequest" />
+          <EntitySet Name="VendorRequests" EntityType="TriotechDbModel.VendorRequest" />
+          <EntitySet Name="Visitors" EntityType="TriotechDbModel.Visitor" />
+          <AssociationSet Name="FK_AspNetUsers_AspNetRoles" Association="TriotechDbModel.FK_AspNetUsers_AspNetRoles">
+            <End Role="AspNetRole" EntitySet="AspNetRoles" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="TriotechDbModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="TriotechDbModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuyerRequest_AspNetUsers" Association="TriotechDbModel.FK_BuyerRequest_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="BuyerRequest" EntitySet="BuyerRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderRequest_AspNetUsers" Association="TriotechDbModel.FK_OrderRequest_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="OrderRequest" EntitySet="OrderRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RequesterRequest_AspNetUsers" Association="TriotechDbModel.FK_RequesterRequest_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="RequesterRequest" EntitySet="RequesterRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VendorRequest_AspNetUsers" Association="TriotechDbModel.FK_VendorRequest_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="VendorRequest" EntitySet="VendorRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuyerRequest_OrderRequest" Association="TriotechDbModel.FK_BuyerRequest_OrderRequest">
+            <End Role="OrderRequest" EntitySet="OrderRequests" />
+            <End Role="BuyerRequest" EntitySet="BuyerRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuyerRequest_OrderRequestAction" Association="TriotechDbModel.FK_BuyerRequest_OrderRequestAction">
+            <End Role="OrderRequestAction" EntitySet="OrderRequestActions" />
+            <End Role="BuyerRequest" EntitySet="BuyerRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuyerRequest_OrderRequestStatus" Association="TriotechDbModel.FK_BuyerRequest_OrderRequestStatus">
+            <End Role="OrderRequestStatu" EntitySet="OrderRequestStatus" />
+            <End Role="BuyerRequest" EntitySet="BuyerRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VendorRequest_BuyerRequest" Association="TriotechDbModel.FK_VendorRequest_BuyerRequest">
+            <End Role="BuyerRequest" EntitySet="BuyerRequests" />
+            <End Role="VendorRequest" EntitySet="VendorRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderRequest_OrderRequestAction" Association="TriotechDbModel.FK_OrderRequest_OrderRequestAction">
+            <End Role="OrderRequestAction" EntitySet="OrderRequestActions" />
+            <End Role="OrderRequest" EntitySet="OrderRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductRequest_OrderRequest" Association="TriotechDbModel.FK_ProductRequest_OrderRequest">
+            <End Role="OrderRequest" EntitySet="OrderRequests" />
+            <End Role="ProductRequest" EntitySet="ProductRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RequesterRequest_OrderRequest" Association="TriotechDbModel.FK_RequesterRequest_OrderRequest">
+            <End Role="OrderRequest" EntitySet="OrderRequests" />
+            <End Role="RequesterRequest" EntitySet="RequesterRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RequesterRequest_OrderRequestAction" Association="TriotechDbModel.FK_RequesterRequest_OrderRequestAction">
+            <End Role="OrderRequestAction" EntitySet="OrderRequestActions" />
+            <End Role="RequesterRequest" EntitySet="RequesterRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VendorRequest_OrderRequestStatus" Association="TriotechDbModel.FK_VendorRequest_OrderRequestStatus">
+            <End Role="OrderRequestStatu" EntitySet="OrderRequestStatus" />
+            <End Role="VendorRequest" EntitySet="VendorRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductRequest_Product" Association="TriotechDbModel.FK_ProductRequest_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ProductRequest" EntitySet="ProductRequests" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="TriotechDbModel.AspNetUserRoles">
+            <End Role="AspNetRole" EntitySet="AspNetRoles" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <FunctionImport Name="FetchAdminOrderRequests" ReturnType="Collection(TriotechDbModel.FetchAdminOrderRequests_Result)">
+            <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+            <Parameter Name="SortCol" Mode="In" Type="Int32" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+            <Parameter Name="ActionID" Mode="In" Type="Int32" />
+            <Parameter Name="StatusID" Mode="In" Type="Int32" />
+            <Parameter Name="Search" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FetchBuyerPendingOrderRequests" ReturnType="Collection(TriotechDbModel.FetchBuyerPendingOrderRequests_Result)">
+            <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+            <Parameter Name="SortCol" Mode="In" Type="Int32" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+            <Parameter Name="ActionID" Mode="In" Type="Int32" />
+            <Parameter Name="StatusID" Mode="In" Type="Int32" />
+            <Parameter Name="BuyerID" Mode="In" Type="Int32" />
+            <Parameter Name="Search" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FetchCategories" ReturnType="Collection(TriotechDbModel.FetchCategories_Result)">
+            <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+            <Parameter Name="SortCol" Mode="In" Type="Int32" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+            <Parameter Name="Search" Mode="In" Type="String" />
+            <Parameter Name="Active" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FetchProducts" ReturnType="Collection(TriotechDbModel.FetchProducts_Result)">
+            <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+            <Parameter Name="SortCol" Mode="In" Type="Int32" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+            <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+            <Parameter Name="Search" Mode="In" Type="String" />
+            <Parameter Name="Active" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FetchRequesterOrderRequests" ReturnType="Collection(TriotechDbModel.FetchRequesterOrderRequests_Result)">
+            <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+            <Parameter Name="SortCol" Mode="In" Type="Int32" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+            <Parameter Name="ActionID" Mode="In" Type="Int32" />
+            <Parameter Name="StatusID" Mode="In" Type="Int32" />
+            <Parameter Name="Requester" Mode="In" Type="Int32" />
+            <Parameter Name="Search" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FetchUser" ReturnType="Collection(TriotechDbModel.FetchUser_Result)">
+            <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+            <Parameter Name="SortCol" Mode="In" Type="Int32" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+            <Parameter Name="CurrentUserId" Mode="In" Type="Int32" />
+            <Parameter Name="RoleID" Mode="In" Type="Int32" />
+            <Parameter Name="Search" Mode="In" Type="String" />
+            <Parameter Name="Active" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FetchVendorOrderRequests" ReturnType="Collection(TriotechDbModel.FetchVendorOrderRequests_Result)">
+            <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+            <Parameter Name="SortCol" Mode="In" Type="Int32" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+            <Parameter Name="ActionID" Mode="In" Type="Int32" />
+            <Parameter Name="StatusID" Mode="In" Type="Int32" />
+            <Parameter Name="VendorID" Mode="In" Type="Int32" />
+            <Parameter Name="Search" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FetchVisitor" ReturnType="Collection(TriotechDbModel.FetchVisitor_Result)">
+            <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+            <Parameter Name="SortCol" Mode="In" Type="Int32" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+            <Parameter Name="Search" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FetchActivityLog" ReturnType="Collection(TriotechDbModel.FetchActivityLog_Result)">
+            <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+            <Parameter Name="SortCol" Mode="In" Type="Int32" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+            <Parameter Name="RecordStartDate" Mode="In" Type="DateTime" />
+            <Parameter Name="RecordDateEndDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Search" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FetchBuyerBusinessRecord" ReturnType="Collection(TriotechDbModel.FetchBuyerBusinessRecord_Result)">
+            <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+            <Parameter Name="SortCol" Mode="In" Type="Int32" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+            <Parameter Name="StatusID" Mode="In" Type="Int32" />
+            <Parameter Name="BuyerID" Mode="In" Type="Int32" />
+            <Parameter Name="Search" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FetchBuyerSentOrderRequests" ReturnType="Collection(TriotechDbModel.FetchBuyerSentOrderRequests_Result)">
+            <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+            <Parameter Name="SortCol" Mode="In" Type="Int32" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+            <Parameter Name="StatusID" Mode="In" Type="Int32" />
+            <Parameter Name="BuyerID" Mode="In" Type="Int32" />
+            <Parameter Name="Search" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Departments" EntityType="TriotechDbModel.Department" />
+          <EntitySet Name="Locations" EntityType="TriotechDbModel.Location" />
+          <EntitySet Name="PhoneExts" EntityType="TriotechDbModel.PhoneExt" />
+          <EntitySet Name="Priorities" EntityType="TriotechDbModel.Priority" />
+          <EntitySet Name="TermsOfServices" EntityType="TriotechDbModel.TermsOfService" />
+          <FunctionImport Name="FetchDepartment" ReturnType="Collection(TriotechDbModel.FetchDepartment_Result)">
+            <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+            <Parameter Name="SortCol" Mode="In" Type="Int32" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+            <Parameter Name="Search" Mode="In" Type="String" />
+            <Parameter Name="Active" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FetchLocation" ReturnType="Collection(TriotechDbModel.FetchLocation_Result)">
+            <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+            <Parameter Name="SortCol" Mode="In" Type="Int32" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+            <Parameter Name="Search" Mode="In" Type="String" />
+            <Parameter Name="Active" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FetchPhoneExt" ReturnType="Collection(TriotechDbModel.FetchPhoneExt_Result)">
+            <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+            <Parameter Name="SortCol" Mode="In" Type="Int32" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+            <Parameter Name="Search" Mode="In" Type="String" />
+            <Parameter Name="Active" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FetchPriority" ReturnType="Collection(TriotechDbModel.FetchPriority_Result)">
+            <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+            <Parameter Name="SortCol" Mode="In" Type="Int32" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+            <Parameter Name="Search" Mode="In" Type="String" />
+            <Parameter Name="Active" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FetchTermOfServices" ReturnType="Collection(TriotechDbModel.FetchTermOfServices_Result)">
+            <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+            <Parameter Name="SortCol" Mode="In" Type="Int32" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+            <Parameter Name="Search" Mode="In" Type="String" />
+            <Parameter Name="Active" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="OrderManagementRequests" EntityType="TriotechDbModel.OrderManagementRequest" />
+          <AssociationSet Name="FK_OrderManagementRequest_AspNetUsers" Association="TriotechDbModel.FK_OrderManagementRequest_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="OrderManagementRequest" EntitySet="OrderManagementRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderManagementRequest_AspNetUsers1" Association="TriotechDbModel.FK_OrderManagementRequest_AspNetUsers1">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="OrderManagementRequest" EntitySet="OrderManagementRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderManagementRequest_Department" Association="TriotechDbModel.FK_OrderManagementRequest_Department">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="OrderManagementRequest" EntitySet="OrderManagementRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderManagementRequest_Location" Association="TriotechDbModel.FK_OrderManagementRequest_Location">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="OrderManagementRequest" EntitySet="OrderManagementRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderManagementRequest_PhoneExt" Association="TriotechDbModel.FK_OrderManagementRequest_PhoneExt">
+            <End Role="PhoneExt" EntitySet="PhoneExts" />
+            <End Role="OrderManagementRequest" EntitySet="OrderManagementRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderManagementRequest_Priority" Association="TriotechDbModel.FK_OrderManagementRequest_Priority">
+            <End Role="Priority" EntitySet="Priorities" />
+            <End Role="OrderManagementRequest" EntitySet="OrderManagementRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderManagementRequest_TermsOfService" Association="TriotechDbModel.FK_OrderManagementRequest_TermsOfService">
+            <End Role="TermsOfService" EntitySet="TermsOfServices" />
+            <End Role="OrderManagementRequest" EntitySet="OrderManagementRequests" />
+          </AssociationSet>
+          <FunctionImport Name="FetchManagementOrderManagementRequests" ReturnType="Collection(TriotechDbModel.FetchManagementOrderManagementRequests_Result)">
+            <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+            <Parameter Name="SortCol" Mode="In" Type="Int32" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+            <Parameter Name="Search" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+            <Parameter Name="ManagementID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="FetchRequesterOrderManagementRequests" ReturnType="Collection(TriotechDbModel.FetchRequesterOrderManagementRequests_Result)">
+            <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+            <Parameter Name="SortCol" Mode="In" Type="Int32" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+            <Parameter Name="RequesterID" Mode="In" Type="Int32" />
+            <Parameter Name="Search" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FetchSupervisorOrderManagementRequests" ReturnType="Collection(TriotechDbModel.FetchSupervisorOrderManagementRequests_Result)">
+            <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+            <Parameter Name="SortCol" Mode="In" Type="Int32" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+            <Parameter Name="SupervisorID" Mode="In" Type="Int32" />
+            <Parameter Name="Search" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Categories" EntityType="TriotechDbModel.Category" />
+          <AssociationSet Name="FK_Product_Category" Association="TriotechDbModel.FK_Product_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderManagementRequest_AspNetUsers2" Association="TriotechDbModel.FK_OrderManagementRequest_AspNetUsers2">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="OrderManagementRequest" EntitySet="OrderManagementRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderManagementRequest_AspNetUsers3" Association="TriotechDbModel.FK_OrderManagementRequest_AspNetUsers3">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="OrderManagementRequest" EntitySet="OrderManagementRequests" />
+          </AssociationSet>
+          <FunctionImport Name="FetchFinalAprovalOrderManagementRequests" ReturnType="Collection(TriotechDbModel.FetchFinalAprovalOrderManagementRequests_Result)">
+            <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+            <Parameter Name="SortCol" Mode="In" Type="Int32" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+            <Parameter Name="Search" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+            <Parameter Name="FinalApprovalID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertCategoryByExcelFile">
+            <Parameter Name="CategoryNumber" Mode="In" Type="String" />
+            <Parameter Name="CategoryName" Mode="In" Type="String" />
+            <Parameter Name="CategoryType" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FetchCompleteRequesterRequestList" ReturnType="Collection(TriotechDbModel.FetchCompleteRequesterRequestList_Result)">
+            <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+            <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+            <Parameter Name="SortCol" Mode="In" Type="Int32" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+            <Parameter Name="Search" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="ActivityLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Action" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RecordId" Type="Int64" />
+          <Property Name="TableName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="User_Id" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="TriotechDbModel.FK_AspNetUsers_AspNetRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+          <NavigationProperty Name="AspNetUsers1" Relationship="TriotechDbModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="TriotechDbModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="TriotechDbModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Photo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DeleteFlag" Type="Int32" />
+          <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedTime" Type="DateTime" Precision="3" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Street" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Near" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentTerms" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
+          <Property Name="NDAFile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyRegisteration" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyProfile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsEmailSent" Type="Boolean" />
+          <NavigationProperty Name="AspNetRole" Relationship="TriotechDbModel.FK_AspNetUsers_AspNetRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="TriotechDbModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="TriotechDbModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+          <NavigationProperty Name="BuyerRequests" Relationship="TriotechDbModel.FK_BuyerRequest_AspNetUsers" FromRole="AspNetUser" ToRole="BuyerRequest" />
+          <NavigationProperty Name="OrderRequests" Relationship="TriotechDbModel.FK_OrderRequest_AspNetUsers" FromRole="AspNetUser" ToRole="OrderRequest" />
+          <NavigationProperty Name="RequesterRequests" Relationship="TriotechDbModel.FK_RequesterRequest_AspNetUsers" FromRole="AspNetUser" ToRole="RequesterRequest" />
+          <NavigationProperty Name="VendorRequests" Relationship="TriotechDbModel.FK_VendorRequest_AspNetUsers" FromRole="AspNetUser" ToRole="VendorRequest" />
+          <NavigationProperty Name="AspNetRoles" Relationship="TriotechDbModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+          <NavigationProperty Name="OrderManagementRequests" Relationship="TriotechDbModel.FK_OrderManagementRequest_AspNetUsers" FromRole="AspNetUser" ToRole="OrderManagementRequest" />
+          <NavigationProperty Name="OrderManagementRequests1" Relationship="TriotechDbModel.FK_OrderManagementRequest_AspNetUsers1" FromRole="AspNetUser" ToRole="OrderManagementRequest" />
+          <NavigationProperty Name="OrderManagementRequests2" Relationship="TriotechDbModel.FK_OrderManagementRequest_AspNetUsers2" FromRole="AspNetUser" ToRole="OrderManagementRequest" />
+          <NavigationProperty Name="OrderManagementRequests3" Relationship="TriotechDbModel.FK_OrderManagementRequest_AspNetUsers3" FromRole="AspNetUser" ToRole="OrderManagementRequest" />
+        </EntityType>
+        <EntityType Name="BuyerRequest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BuyerID" Type="Int32" Nullable="false" />
+          <Property Name="RequestID" Type="Int32" Nullable="false" />
+          <Property Name="StatusID" Type="Int32" Nullable="false" />
+          <Property Name="BuyerDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BuyerPrice" Type="Double" />
+          <Property Name="QoutationDate" Type="DateTime" Precision="3" />
+          <Property Name="ActionID" Type="Int32" />
+          <NavigationProperty Name="AspNetUser" Relationship="TriotechDbModel.FK_BuyerRequest_AspNetUsers" FromRole="BuyerRequest" ToRole="AspNetUser" />
+          <NavigationProperty Name="OrderRequest" Relationship="TriotechDbModel.FK_BuyerRequest_OrderRequest" FromRole="BuyerRequest" ToRole="OrderRequest" />
+          <NavigationProperty Name="OrderRequestAction" Relationship="TriotechDbModel.FK_BuyerRequest_OrderRequestAction" FromRole="BuyerRequest" ToRole="OrderRequestAction" />
+          <NavigationProperty Name="OrderRequestStatu" Relationship="TriotechDbModel.FK_BuyerRequest_OrderRequestStatus" FromRole="BuyerRequest" ToRole="OrderRequestStatu" />
+          <NavigationProperty Name="VendorRequests" Relationship="TriotechDbModel.FK_VendorRequest_BuyerRequest" FromRole="BuyerRequest" ToRole="VendorRequest" />
+        </EntityType>
+        <EntityType Name="EmailTemplate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="From" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="To" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CC" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="BCC" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MessageBody" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdateBy" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="TemplateUrl" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="OrderRequest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="RequestDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="RequesterDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RequesterID" Type="Int32" Nullable="false" />
+          <Property Name="ActionID" Type="Int32" />
+          <NavigationProperty Name="AspNetUser" Relationship="TriotechDbModel.FK_OrderRequest_AspNetUsers" FromRole="OrderRequest" ToRole="AspNetUser" />
+          <NavigationProperty Name="BuyerRequests" Relationship="TriotechDbModel.FK_BuyerRequest_OrderRequest" FromRole="OrderRequest" ToRole="BuyerRequest" />
+          <NavigationProperty Name="OrderRequestAction" Relationship="TriotechDbModel.FK_OrderRequest_OrderRequestAction" FromRole="OrderRequest" ToRole="OrderRequestAction" />
+          <NavigationProperty Name="ProductRequests" Relationship="TriotechDbModel.FK_ProductRequest_OrderRequest" FromRole="OrderRequest" ToRole="ProductRequest" />
+          <NavigationProperty Name="RequesterRequests" Relationship="TriotechDbModel.FK_RequesterRequest_OrderRequest" FromRole="OrderRequest" ToRole="RequesterRequest" />
+        </EntityType>
+        <EntityType Name="OrderRequestAction">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BuyerRequests" Relationship="TriotechDbModel.FK_BuyerRequest_OrderRequestAction" FromRole="OrderRequestAction" ToRole="BuyerRequest" />
+          <NavigationProperty Name="OrderRequests" Relationship="TriotechDbModel.FK_OrderRequest_OrderRequestAction" FromRole="OrderRequestAction" ToRole="OrderRequest" />
+          <NavigationProperty Name="RequesterRequests" Relationship="TriotechDbModel.FK_RequesterRequest_OrderRequestAction" FromRole="OrderRequestAction" ToRole="RequesterRequest" />
+        </EntityType>
+        <EntityType Name="OrderRequestStatu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BuyerRequests" Relationship="TriotechDbModel.FK_BuyerRequest_OrderRequestStatus" FromRole="OrderRequestStatu" ToRole="BuyerRequest" />
+          <NavigationProperty Name="VendorRequests" Relationship="TriotechDbModel.FK_VendorRequest_OrderRequestStatus" FromRole="OrderRequestStatu" ToRole="VendorRequest" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ProductRequests" Relationship="TriotechDbModel.FK_ProductRequest_Product" FromRole="Product" ToRole="ProductRequest" />
+          <NavigationProperty Name="Category" Relationship="TriotechDbModel.FK_Product_Category" FromRole="Product" ToRole="Category" />
+        </EntityType>
+        <EntityType Name="ProductRequest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="RequestID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="OrderRequest" Relationship="TriotechDbModel.FK_ProductRequest_OrderRequest" FromRole="ProductRequest" ToRole="OrderRequest" />
+          <NavigationProperty Name="Product" Relationship="TriotechDbModel.FK_ProductRequest_Product" FromRole="ProductRequest" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="RequesterRequest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BuyerID" Type="Int32" Nullable="false" />
+          <Property Name="RequestID" Type="Int32" Nullable="false" />
+          <Property Name="ActionID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="TriotechDbModel.FK_RequesterRequest_AspNetUsers" FromRole="RequesterRequest" ToRole="AspNetUser" />
+          <NavigationProperty Name="OrderRequest" Relationship="TriotechDbModel.FK_RequesterRequest_OrderRequest" FromRole="RequesterRequest" ToRole="OrderRequest" />
+          <NavigationProperty Name="OrderRequestAction" Relationship="TriotechDbModel.FK_RequesterRequest_OrderRequestAction" FromRole="RequesterRequest" ToRole="OrderRequestAction" />
+        </EntityType>
+        <EntityType Name="VendorRequest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VendorID" Type="Int32" Nullable="false" />
+          <Property Name="BuyerRequestID" Type="Int32" Nullable="false" />
+          <Property Name="StatusID" Type="Int32" Nullable="false" />
+          <Property Name="Qoutation1" Type="Double" />
+          <Property Name="Qoutation2" Type="Double" />
+          <Property Name="Qoutation3" Type="Double" />
+          <Property Name="VendorDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="QoutationDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AspNetUser" Relationship="TriotechDbModel.FK_VendorRequest_AspNetUsers" FromRole="VendorRequest" ToRole="AspNetUser" />
+          <NavigationProperty Name="BuyerRequest" Relationship="TriotechDbModel.FK_VendorRequest_BuyerRequest" FromRole="VendorRequest" ToRole="BuyerRequest" />
+          <NavigationProperty Name="OrderRequestStatu" Relationship="TriotechDbModel.FK_VendorRequest_OrderRequestStatus" FromRole="VendorRequest" ToRole="OrderRequestStatu" />
+        </EntityType>
+        <EntityType Name="Visitor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IpAddress" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VisitTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <Association Name="FK_AspNetUsers_AspNetRoles">
+          <End Type="TriotechDbModel.AspNetRole" Role="AspNetRole" Multiplicity="1" />
+          <End Type="TriotechDbModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUser">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Type="TriotechDbModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="TriotechDbModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaim">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Type="TriotechDbModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="TriotechDbModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuyerRequest_AspNetUsers">
+          <End Type="TriotechDbModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="TriotechDbModel.BuyerRequest" Role="BuyerRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BuyerRequest">
+              <PropertyRef Name="BuyerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderRequest_AspNetUsers">
+          <End Type="TriotechDbModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="TriotechDbModel.OrderRequest" Role="OrderRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderRequest">
+              <PropertyRef Name="RequesterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RequesterRequest_AspNetUsers">
+          <End Type="TriotechDbModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="TriotechDbModel.RequesterRequest" Role="RequesterRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RequesterRequest">
+              <PropertyRef Name="BuyerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VendorRequest_AspNetUsers">
+          <End Type="TriotechDbModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="TriotechDbModel.VendorRequest" Role="VendorRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VendorRequest">
+              <PropertyRef Name="VendorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuyerRequest_OrderRequest">
+          <End Type="TriotechDbModel.OrderRequest" Role="OrderRequest" Multiplicity="1" />
+          <End Type="TriotechDbModel.BuyerRequest" Role="BuyerRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderRequest">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BuyerRequest">
+              <PropertyRef Name="RequestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuyerRequest_OrderRequestAction">
+          <End Type="TriotechDbModel.OrderRequestAction" Role="OrderRequestAction" Multiplicity="0..1" />
+          <End Type="TriotechDbModel.BuyerRequest" Role="BuyerRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderRequestAction">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BuyerRequest">
+              <PropertyRef Name="ActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuyerRequest_OrderRequestStatus">
+          <End Type="TriotechDbModel.OrderRequestStatu" Role="OrderRequestStatu" Multiplicity="1" />
+          <End Type="TriotechDbModel.BuyerRequest" Role="BuyerRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderRequestStatu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BuyerRequest">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VendorRequest_BuyerRequest">
+          <End Type="TriotechDbModel.BuyerRequest" Role="BuyerRequest" Multiplicity="1" />
+          <End Type="TriotechDbModel.VendorRequest" Role="VendorRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BuyerRequest">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VendorRequest">
+              <PropertyRef Name="BuyerRequestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderRequest_OrderRequestAction">
+          <End Type="TriotechDbModel.OrderRequestAction" Role="OrderRequestAction" Multiplicity="0..1" />
+          <End Type="TriotechDbModel.OrderRequest" Role="OrderRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderRequestAction">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderRequest">
+              <PropertyRef Name="ActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductRequest_OrderRequest">
+          <End Type="TriotechDbModel.OrderRequest" Role="OrderRequest" Multiplicity="1" />
+          <End Type="TriotechDbModel.ProductRequest" Role="ProductRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderRequest">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductRequest">
+              <PropertyRef Name="RequestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RequesterRequest_OrderRequest">
+          <End Type="TriotechDbModel.OrderRequest" Role="OrderRequest" Multiplicity="1" />
+          <End Type="TriotechDbModel.RequesterRequest" Role="RequesterRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderRequest">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RequesterRequest">
+              <PropertyRef Name="RequestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RequesterRequest_OrderRequestAction">
+          <End Type="TriotechDbModel.OrderRequestAction" Role="OrderRequestAction" Multiplicity="1" />
+          <End Type="TriotechDbModel.RequesterRequest" Role="RequesterRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderRequestAction">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RequesterRequest">
+              <PropertyRef Name="ActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VendorRequest_OrderRequestStatus">
+          <End Type="TriotechDbModel.OrderRequestStatu" Role="OrderRequestStatu" Multiplicity="1" />
+          <End Type="TriotechDbModel.VendorRequest" Role="VendorRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderRequestStatu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VendorRequest">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductRequest_Product">
+          <End Type="TriotechDbModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="TriotechDbModel.ProductRequest" Role="ProductRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductRequest">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Type="TriotechDbModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+          <End Type="TriotechDbModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+        </Association>
+        <ComplexType Name="FetchAdminOrderRequests_Result">
+          <Property Type="Int64" Name="RowNo" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="150" />
+          <Property Type="DateTime" Name="RequestDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="BuyerName" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="StatusName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="VendorName" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="ActionName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="RequesterName" Nullable="false" MaxLength="256" />
+        </ComplexType>
+        <ComplexType Name="FetchBuyerPendingOrderRequests_Result">
+          <Property Type="Int64" Name="RowNo" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="150" />
+          <Property Type="DateTime" Name="RequestDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="RequesterName" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="StatusName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ActionName" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="FetchCategories_Result">
+          <Property Type="Int64" Name="RowNo" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="type" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="FetchProducts_Result">
+          <Property Type="Int64" Name="RowNo" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="FetchRequesterOrderRequests_Result">
+          <Property Type="Int64" Name="RowNo" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="150" />
+          <Property Type="DateTime" Name="RequestDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="BuyerName" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="StatusName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ActionName" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="FetchUser_Result">
+          <Property Type="Int64" Name="RowNo" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="DateTime" Name="ExpiryDate" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="IsEmailSent" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="FetchVendorOrderRequests_Result">
+          <Property Type="Int64" Name="RowNo" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="150" />
+          <Property Type="DateTime" Name="RequestDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="BuyerName" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="StatusName" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="FetchVisitor_Result">
+          <Property Type="Int64" Name="RowNo" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="IpAddress" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Location" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="VisitTime" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="FetchActivityLog_Result">
+          <Property Type="Int64" Name="RowNo" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="Action" Nullable="false" />
+          <Property Type="String" Name="Detail" Nullable="true" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="FetchBuyerBusinessRecord_Result">
+          <Property Type="Int64" Name="RowNo" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="150" />
+          <Property Type="DateTime" Name="QoutationDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="RequesterName" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="StatusName" Nullable="false" MaxLength="50" />
+          <Property Type="Double" Name="BuyerPrice" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="FetchBuyerSentOrderRequests_Result">
+          <Property Type="Int64" Name="RowNo" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="150" />
+          <Property Type="DateTime" Name="QoutationDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="RequesterName" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="StatusName" Nullable="false" MaxLength="50" />
+          <Property Type="Double" Name="BuyerPrice" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="OrderManagementRequests" Relationship="TriotechDbModel.FK_OrderManagementRequest_Department" FromRole="Department" ToRole="OrderManagementRequest" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="OrderManagementRequests" Relationship="TriotechDbModel.FK_OrderManagementRequest_Location" FromRole="Location" ToRole="OrderManagementRequest" />
+        </EntityType>
+        <EntityType Name="PhoneExt">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="OrderManagementRequests" Relationship="TriotechDbModel.FK_OrderManagementRequest_PhoneExt" FromRole="PhoneExt" ToRole="OrderManagementRequest" />
+        </EntityType>
+        <EntityType Name="Priority">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="OrderManagementRequests" Relationship="TriotechDbModel.FK_OrderManagementRequest_Priority" FromRole="Priority" ToRole="OrderManagementRequest" />
+        </EntityType>
+        <EntityType Name="TermsOfService">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="OrderManagementRequests" Relationship="TriotechDbModel.FK_OrderManagementRequest_TermsOfService" FromRole="TermsOfService" ToRole="OrderManagementRequest" />
+        </EntityType>
+        <ComplexType Name="FetchDepartment_Result">
+          <Property Type="Int64" Name="RowNo" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="FetchLocation_Result">
+          <Property Type="Int64" Name="RowNo" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="FetchPhoneExt_Result">
+          <Property Type="Int64" Name="RowNo" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="10" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="FetchPriority_Result">
+          <Property Type="Int64" Name="RowNo" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="FetchTermOfServices_Result">
+          <Property Type="Int64" Name="RowNo" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="500" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="OrderManagementRequest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RequestDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="RequestStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneExtID" Type="Int32" Nullable="false" />
+          <Property Name="DepartmenttID" Type="Int32" Nullable="false" />
+          <Property Name="LocationID" Type="Int32" Nullable="false" />
+          <Property Name="PriorityID" Type="Int32" Nullable="false" />
+          <Property Name="TermOfServiceID" Type="Int32" Nullable="false" />
+          <Property Name="SupervisorID" Type="Int32" Nullable="false" />
+          <Property Name="RequesterID" Type="Int32" Nullable="false" />
+          <Property Name="RequesterComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SupervisorComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ManagementComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="TriotechDbModel.FK_OrderManagementRequest_AspNetUsers" FromRole="OrderManagementRequest" ToRole="AspNetUser" />
+          <NavigationProperty Name="AspNetUser1" Relationship="TriotechDbModel.FK_OrderManagementRequest_AspNetUsers1" FromRole="OrderManagementRequest" ToRole="AspNetUser" />
+          <NavigationProperty Name="Department" Relationship="TriotechDbModel.FK_OrderManagementRequest_Department" FromRole="OrderManagementRequest" ToRole="Department" />
+          <NavigationProperty Name="Location" Relationship="TriotechDbModel.FK_OrderManagementRequest_Location" FromRole="OrderManagementRequest" ToRole="Location" />
+          <NavigationProperty Name="PhoneExt" Relationship="TriotechDbModel.FK_OrderManagementRequest_PhoneExt" FromRole="OrderManagementRequest" ToRole="PhoneExt" />
+          <NavigationProperty Name="Priority" Relationship="TriotechDbModel.FK_OrderManagementRequest_Priority" FromRole="OrderManagementRequest" ToRole="Priority" />
+          <NavigationProperty Name="TermsOfService" Relationship="TriotechDbModel.FK_OrderManagementRequest_TermsOfService" FromRole="OrderManagementRequest" ToRole="TermsOfService" />
+          <Property Name="RequestTittle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CEOComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ManagementID" Type="Int32" Nullable="false" />
+          <Property Name="FinalApprovalID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AspNetUser2" Relationship="TriotechDbModel.FK_OrderManagementRequest_AspNetUsers2" FromRole="OrderManagementRequest" ToRole="AspNetUser" />
+          <NavigationProperty Name="AspNetUser3" Relationship="TriotechDbModel.FK_OrderManagementRequest_AspNetUsers3" FromRole="OrderManagementRequest" ToRole="AspNetUser" />
+        </EntityType>
+        <Association Name="FK_OrderManagementRequest_AspNetUsers">
+          <End Type="TriotechDbModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="TriotechDbModel.OrderManagementRequest" Role="OrderManagementRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderManagementRequest">
+              <PropertyRef Name="SupervisorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderManagementRequest_AspNetUsers1">
+          <End Type="TriotechDbModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="TriotechDbModel.OrderManagementRequest" Role="OrderManagementRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderManagementRequest">
+              <PropertyRef Name="RequesterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderManagementRequest_Department">
+          <End Type="TriotechDbModel.Department" Role="Department" Multiplicity="1" />
+          <End Type="TriotechDbModel.OrderManagementRequest" Role="OrderManagementRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderManagementRequest">
+              <PropertyRef Name="DepartmenttID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderManagementRequest_Location">
+          <End Type="TriotechDbModel.Location" Role="Location" Multiplicity="1" />
+          <End Type="TriotechDbModel.OrderManagementRequest" Role="OrderManagementRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderManagementRequest">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderManagementRequest_PhoneExt">
+          <End Type="TriotechDbModel.PhoneExt" Role="PhoneExt" Multiplicity="1" />
+          <End Type="TriotechDbModel.OrderManagementRequest" Role="OrderManagementRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhoneExt">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderManagementRequest">
+              <PropertyRef Name="PhoneExtID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderManagementRequest_Priority">
+          <End Type="TriotechDbModel.Priority" Role="Priority" Multiplicity="1" />
+          <End Type="TriotechDbModel.OrderManagementRequest" Role="OrderManagementRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Priority">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderManagementRequest">
+              <PropertyRef Name="PriorityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderManagementRequest_TermsOfService">
+          <End Type="TriotechDbModel.TermsOfService" Role="TermsOfService" Multiplicity="1" />
+          <End Type="TriotechDbModel.OrderManagementRequest" Role="OrderManagementRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TermsOfService">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderManagementRequest">
+              <PropertyRef Name="TermOfServiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="FetchManagementOrderManagementRequests_Result">
+          <Property Type="Int64" Name="RowNo" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="RequestTittle" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="RequestDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="RequesterName" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="SupervisorName" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="RequestStatus" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="FetchRequesterOrderManagementRequests_Result">
+          <Property Type="Int64" Name="RowNo" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="RequestTittle" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="RequestDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="SupervisorName" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="RequestStatus" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="FetchSupervisorOrderManagementRequests_Result">
+          <Property Type="Int64" Name="RowNo" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="RequestTittle" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="RequestDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="RequesterName" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="RequestStatus" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Number" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="TriotechDbModel.FK_Product_Category" FromRole="Category" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK_Product_Category">
+          <End Type="TriotechDbModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="TriotechDbModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderManagementRequest_AspNetUsers2">
+          <End Type="TriotechDbModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="TriotechDbModel.OrderManagementRequest" Role="OrderManagementRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderManagementRequest">
+              <PropertyRef Name="ManagementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderManagementRequest_AspNetUsers3">
+          <End Type="TriotechDbModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="TriotechDbModel.OrderManagementRequest" Role="OrderManagementRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderManagementRequest">
+              <PropertyRef Name="FinalApprovalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="FetchFinalAprovalOrderManagementRequests_Result">
+          <Property Type="Int64" Name="RowNo" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="RequestTittle" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="RequestDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="RequesterName" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="SupervisorName" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="ManagementName" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="RequestStatus" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="FetchCompleteRequesterRequestList_Result">
+          <Property Type="Int64" Name="RowNo" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="RequestTittle" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="RequestDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="RequesterName" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="SupervisorName" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="ManagementName" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="RequestStatus" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TriotechDbModelStoreContainer" CdmEntityContainer="TriotechDbEntities">
+          <EntitySetMapping Name="ActivityLogs">
+            <EntityTypeMapping TypeName="TriotechDbModel.ActivityLog">
+              <MappingFragment StoreEntitySet="ActivityLog">
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="RecordId" ColumnName="RecordId" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="TriotechDbModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="TriotechDbModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="TriotechDbModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="TriotechDbModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="IsEmailSent" ColumnName="IsEmailSent" />
+                <ScalarProperty Name="CompanyProfile" ColumnName="CompanyProfile" />
+                <ScalarProperty Name="CompanyRegisteration" ColumnName="CompanyRegisteration" />
+                <ScalarProperty Name="NDAFile" ColumnName="NDAFile" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="PaymentTerms" ColumnName="PaymentTerms" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Near" ColumnName="Near" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+                <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+                <ScalarProperty Name="DeleteFlag" ColumnName="DeleteFlag" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BuyerRequests">
+            <EntityTypeMapping TypeName="TriotechDbModel.BuyerRequest">
+              <MappingFragment StoreEntitySet="BuyerRequest">
+                <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+                <ScalarProperty Name="QoutationDate" ColumnName="QoutationDate" />
+                <ScalarProperty Name="BuyerPrice" ColumnName="BuyerPrice" />
+                <ScalarProperty Name="BuyerDescription" ColumnName="BuyerDescription" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="RequestID" ColumnName="RequestID" />
+                <ScalarProperty Name="BuyerID" ColumnName="BuyerID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailTemplates">
+            <EntityTypeMapping TypeName="TriotechDbModel.EmailTemplate">
+              <MappingFragment StoreEntitySet="EmailTemplate">
+                <ScalarProperty Name="TemplateUrl" ColumnName="TemplateUrl" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="MessageBody" ColumnName="MessageBody" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="BCC" ColumnName="BCC" />
+                <ScalarProperty Name="CC" ColumnName="CC" />
+                <ScalarProperty Name="To" ColumnName="To" />
+                <ScalarProperty Name="From" ColumnName="From" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderRequests">
+            <EntityTypeMapping TypeName="TriotechDbModel.OrderRequest">
+              <MappingFragment StoreEntitySet="OrderRequest">
+                <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+                <ScalarProperty Name="RequesterID" ColumnName="RequesterID" />
+                <ScalarProperty Name="RequesterDescription" ColumnName="RequesterDescription" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderRequestActions">
+            <EntityTypeMapping TypeName="TriotechDbModel.OrderRequestAction">
+              <MappingFragment StoreEntitySet="OrderRequestAction">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderRequestStatus">
+            <EntityTypeMapping TypeName="TriotechDbModel.OrderRequestStatu">
+              <MappingFragment StoreEntitySet="OrderRequestStatus">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="TriotechDbModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductRequests">
+            <EntityTypeMapping TypeName="TriotechDbModel.ProductRequest">
+              <MappingFragment StoreEntitySet="ProductRequest">
+                <ScalarProperty Name="RequestID" ColumnName="RequestID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RequesterRequests">
+            <EntityTypeMapping TypeName="TriotechDbModel.RequesterRequest">
+              <MappingFragment StoreEntitySet="RequesterRequest">
+                <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+                <ScalarProperty Name="RequestID" ColumnName="RequestID" />
+                <ScalarProperty Name="BuyerID" ColumnName="BuyerID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VendorRequests">
+            <EntityTypeMapping TypeName="TriotechDbModel.VendorRequest">
+              <MappingFragment StoreEntitySet="VendorRequest">
+                <ScalarProperty Name="QoutationDate" ColumnName="QoutationDate" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="VendorDescription" ColumnName="VendorDescription" />
+                <ScalarProperty Name="Qoutation3" ColumnName="Qoutation3" />
+                <ScalarProperty Name="Qoutation2" ColumnName="Qoutation2" />
+                <ScalarProperty Name="Qoutation1" ColumnName="Qoutation1" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="BuyerRequestID" ColumnName="BuyerRequestID" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Visitors">
+            <EntityTypeMapping TypeName="TriotechDbModel.Visitor">
+              <MappingFragment StoreEntitySet="Visitor">
+                <ScalarProperty Name="VisitTime" ColumnName="VisitTime" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="TriotechDbModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetUser">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="AspNetRole">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="FetchAdminOrderRequests" FunctionName="TriotechDbModel.Store.FetchAdminOrderRequests">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TriotechDbModel.FetchAdminOrderRequests_Result">
+                <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="BuyerName" ColumnName="BuyerName" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+                <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+                <ScalarProperty Name="RequesterName" ColumnName="RequesterName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchBuyerPendingOrderRequests" FunctionName="TriotechDbModel.Store.FetchBuyerPendingOrderRequests">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TriotechDbModel.FetchBuyerPendingOrderRequests_Result">
+                <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="RequesterName" ColumnName="RequesterName" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+                <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchCategories" FunctionName="TriotechDbModel.Store.FetchCategories">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TriotechDbModel.FetchCategories_Result">
+                <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchProducts" FunctionName="TriotechDbModel.Store.FetchProducts">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TriotechDbModel.FetchProducts_Result">
+                <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchRequesterOrderRequests" FunctionName="TriotechDbModel.Store.FetchRequesterOrderRequests">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TriotechDbModel.FetchRequesterOrderRequests_Result">
+                <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="BuyerName" ColumnName="BuyerName" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+                <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchUser" FunctionName="TriotechDbModel.Store.FetchUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TriotechDbModel.FetchUser_Result">
+                <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="IsEmailSent" ColumnName="IsEmailSent" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchVendorOrderRequests" FunctionName="TriotechDbModel.Store.FetchVendorOrderRequests">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TriotechDbModel.FetchVendorOrderRequests_Result">
+                <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="BuyerName" ColumnName="BuyerName" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchVisitor" FunctionName="TriotechDbModel.Store.FetchVisitor">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TriotechDbModel.FetchVisitor_Result">
+                <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="VisitTime" ColumnName="VisitTime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchActivityLog" FunctionName="TriotechDbModel.Store.FetchActivityLog">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TriotechDbModel.FetchActivityLog_Result">
+                <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchBuyerBusinessRecord" FunctionName="TriotechDbModel.Store.FetchBuyerBusinessRecord">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TriotechDbModel.FetchBuyerBusinessRecord_Result">
+                <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="QoutationDate" ColumnName="QoutationDate" />
+                <ScalarProperty Name="RequesterName" ColumnName="RequesterName" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+                <ScalarProperty Name="BuyerPrice" ColumnName="BuyerPrice" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchBuyerSentOrderRequests" FunctionName="TriotechDbModel.Store.FetchBuyerSentOrderRequests">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TriotechDbModel.FetchBuyerSentOrderRequests_Result">
+                <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="QoutationDate" ColumnName="QoutationDate" />
+                <ScalarProperty Name="RequesterName" ColumnName="RequesterName" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+                <ScalarProperty Name="BuyerPrice" ColumnName="BuyerPrice" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="TriotechDbModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="TriotechDbModel.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhoneExts">
+            <EntityTypeMapping TypeName="TriotechDbModel.PhoneExt">
+              <MappingFragment StoreEntitySet="PhoneExt">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Priorities">
+            <EntityTypeMapping TypeName="TriotechDbModel.Priority">
+              <MappingFragment StoreEntitySet="Priority">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TermsOfServices">
+            <EntityTypeMapping TypeName="TriotechDbModel.TermsOfService">
+              <MappingFragment StoreEntitySet="TermsOfService">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="FetchDepartment" FunctionName="TriotechDbModel.Store.FetchDepartment">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TriotechDbModel.FetchDepartment_Result">
+                <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchLocation" FunctionName="TriotechDbModel.Store.FetchLocation">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TriotechDbModel.FetchLocation_Result">
+                <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchPhoneExt" FunctionName="TriotechDbModel.Store.FetchPhoneExt">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TriotechDbModel.FetchPhoneExt_Result">
+                <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchPriority" FunctionName="TriotechDbModel.Store.FetchPriority">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TriotechDbModel.FetchPriority_Result">
+                <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchTermOfServices" FunctionName="TriotechDbModel.Store.FetchTermOfServices">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TriotechDbModel.FetchTermOfServices_Result">
+                <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="OrderManagementRequests">
+            <EntityTypeMapping TypeName="TriotechDbModel.OrderManagementRequest">
+              <MappingFragment StoreEntitySet="OrderManagementRequest">
+                <ScalarProperty Name="FinalApprovalID" ColumnName="FinalApprovalID" />
+                <ScalarProperty Name="ManagementID" ColumnName="ManagementID" />
+                <ScalarProperty Name="CEOComment" ColumnName="CEOComment" />
+                <ScalarProperty Name="RequestTittle" ColumnName="RequestTittle" />
+                <ScalarProperty Name="ManagementComment" ColumnName="ManagementComment" />
+                <ScalarProperty Name="SupervisorComment" ColumnName="SupervisorComment" />
+                <ScalarProperty Name="RequesterComment" ColumnName="RequesterComment" />
+                <ScalarProperty Name="RequesterID" ColumnName="RequesterID" />
+                <ScalarProperty Name="SupervisorID" ColumnName="SupervisorID" />
+                <ScalarProperty Name="TermOfServiceID" ColumnName="TermOfServiceID" />
+                <ScalarProperty Name="PriorityID" ColumnName="PriorityID" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="DepartmenttID" ColumnName="DepartmenttID" />
+                <ScalarProperty Name="PhoneExtID" ColumnName="PhoneExtID" />
+                <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="FetchManagementOrderManagementRequests" FunctionName="TriotechDbModel.Store.FetchManagementOrderManagementRequests">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TriotechDbModel.FetchManagementOrderManagementRequests_Result">
+                <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RequestTittle" ColumnName="RequestTittle" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="RequesterName" ColumnName="RequesterName" />
+                <ScalarProperty Name="SupervisorName" ColumnName="SupervisorName" />
+                <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchRequesterOrderManagementRequests" FunctionName="TriotechDbModel.Store.FetchRequesterOrderManagementRequests">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TriotechDbModel.FetchRequesterOrderManagementRequests_Result">
+                <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RequestTittle" ColumnName="RequestTittle" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="SupervisorName" ColumnName="SupervisorName" />
+                <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchSupervisorOrderManagementRequests" FunctionName="TriotechDbModel.Store.FetchSupervisorOrderManagementRequests">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TriotechDbModel.FetchSupervisorOrderManagementRequests_Result">
+                <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RequestTittle" ColumnName="RequestTittle" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="RequesterName" ColumnName="RequesterName" />
+                <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="TriotechDbModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="FetchFinalAprovalOrderManagementRequests" FunctionName="TriotechDbModel.Store.FetchFinalAprovalOrderManagementRequests">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TriotechDbModel.FetchFinalAprovalOrderManagementRequests_Result">
+                <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RequestTittle" ColumnName="RequestTittle" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="RequesterName" ColumnName="RequesterName" />
+                <ScalarProperty Name="SupervisorName" ColumnName="SupervisorName" />
+                <ScalarProperty Name="ManagementName" ColumnName="ManagementName" />
+                <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="InsertCategoryByExcelFile" FunctionName="TriotechDbModel.Store.InsertCategoryByExcelFile" />
+          <FunctionImportMapping FunctionImportName="FetchCompleteRequesterRequestList" FunctionName="TriotechDbModel.Store.FetchCompleteRequesterRequestList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TriotechDbModel.FetchCompleteRequesterRequestList_Result">
+                <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RequestTittle" ColumnName="RequestTittle" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="RequesterName" ColumnName="RequesterName" />
+                <ScalarProperty Name="SupervisorName" ColumnName="SupervisorName" />
+                <ScalarProperty Name="ManagementName" ColumnName="ManagementName" />
+                <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

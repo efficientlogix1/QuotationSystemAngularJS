@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Visitors";
+}
+
+<script src="~/Angular/Visitor/Visitor.js"></script>
+<div class="row" ng-controller="VisitorController" id="DivVisitorManagement">
+    <div class="col-md-12">
+
+        <div class="panel">
+            <div class="panel-body">
+                <form class="row mt1" ng-submit="VisitorFetch()">
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input class="form-control" ng-model="VisitorSearch.Search" placeholder="Search ...">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-primary col-xs-12"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div><!-- /input-group -->
+                    </div>
+                    @*<div class="col-sm-2">
+                            <select class="form-control select" ng-change="VisitorFetch()" ng-model="VisitorSearch.Active">
+                                <option value="">All Visitores</option>
+                                <option value="1">Active</option>
+                                <option value="0">Inactive</option>
+                            </select>
+                        </div>*@
+                    @*<div class="col-sm-4">
+                            <button class="btn btn-primary pull-right" id="btnExport"><i class="fa fa-plus fa-fw"></i> Export Visitor</button>
+                        </div>*@
+                </form>
+            </div>
+        </div>
+
+
+        <div class="panel panel-default collapsed">
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table id="VisitorTable" class="table table-striped table-hover dt-edit" style="margin-top:-1px !important; width: 100% !important">
+                        <thead>
+                            <tr>
+                                <th>IP Address</th>
+                                <th>Location</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

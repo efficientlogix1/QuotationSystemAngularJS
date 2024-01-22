@@ -1,0 +1,390 @@
+﻿
+@{
+
+    ViewBag.Title = "Request Setup";
+}
+
+<h3>
+    Select Request details below:
+</h3>
+<hr />
+<script src="~/Angular/OrderManagementRequest/OrderManagementRequestSetup.js"></script>
+<form ng-controller="OrderManagementRequestController" id="requestsetupform" ng-submit="OrderManagementRequestSubmitForm()">
+    <h3><label>Requester Data</label></h3>
+
+    <hr />
+
+    <div class="row" ng-show="OrderManagementRequest.ID == 0">
+
+        <div class="form-group col-sm-6">
+            <input class="form-control " placeholder="Request Tile " ng-model="OrderManagementRequest.RequestTittle" required>
+        </div>
+        @*<div class="form-group col-sm-6">
+                <select class="form-control inputddl catDDl" id="catDdl_{{$index}}" ng-model="x.CategoryID" onchange="angular.element(this).scope().ChangeCategory(this)">
+                    <option ng-value="0"> Employee Number </option>
+                    <option ng-repeat="c in lstCategories" ng-value="{{c.ID}}">{{c.Name}}</option>
+                </select>
+            </div>*@
+
+        <div class="form-group col-sm-6">
+
+            <select class="form-control" id="phoneex" ng-model="OrderManagementRequest.PhoneExtID" required>
+
+                <option ng-value="0">Select Phone Ext </option>
+                <option ng-repeat="c in ListPhoneExt" ng-value="{{c.ID}}">{{c.Code}}</option>
+            </select>
+            @*<span ng-hide="!OrderManagementRequest.PhoneExtID">Thanks. Successfully validated!</span>*@
+        </div>
+        <div class="form-group col-sm-6">
+            <select class="form-control" ng-model="OrderManagementRequest.DepartmenttID" required>
+                <option ng-value="0"> Select Dept </option>
+                <option ng-repeat="c in ListDepartment" ng-value="{{c.ID}}">{{c.Name}}</option>
+            </select>
+        </div>
+
+
+
+
+        <div class="form-group col-sm-6">
+            <select class="form-control" ng-model="OrderManagementRequest.LocationID" required>
+                <option ng-value="0"> Select Location </option>
+                <option ng-repeat="c in ListLocation" ng-value="{{c.ID}}">{{c.Name}}</option>
+            </select>
+        </div>
+
+        <div class="form-group col-sm-6">
+            <textarea class="form-control inputtxt" placeholder="Enter Comments" ng-model="OrderManagementRequest.RequesterComment" style="resize:none;"></textarea>
+
+
+        </div>
+
+    </div>
+    <div class="row" ng-show="OrderManagementRequest.ID != 0">
+
+
+        <div class="form-group col-sm-6">
+
+            <label><b>Current Status:</b> {{OrderManagementRequest.CurrentStatus}} </label>
+        </div>
+
+        <div class="form-group col-sm-6">
+
+            <label><b>Request Tittle:</b> {{OrderManagementRequest.RequestTittle}} </label>
+        </div>
+        <div class="form-group col-sm-6">
+
+            <label><b>PhoneExt:</b> {{OrderManagementRequest.PhoneExtCode}} </label>
+        </div>
+        <div class="form-group col-sm-6">
+
+            <label><b>Department:</b> {{OrderManagementRequest.DepartmenttName}} </label>
+        </div>
+        <div class="form-group col-sm-6">
+
+            <label><b>Requester Name:</b> {{OrderManagementRequest.RequesterName}} </label>
+        </div>
+        <div class="form-group col-sm-6">
+
+            <label><b>Supervisor Name:</b> {{OrderManagementRequest.SupervisorName}} </label>
+        </div>
+        <div class="form-group col-sm-6">
+
+            <label><b>Management Name:</b> {{OrderManagementRequest.ManagementName}} </label>
+        </div>
+        <div class="form-group col-sm-6">
+
+            <label><b>Final Approval Name:</b> {{OrderManagementRequest.FinalApprovalName}} </label>
+        </div>
+        <div class="form-group col-sm-6">
+
+            <label><b>Requester Comment:</b> {{OrderManagementRequest.RequesterComment}} </label>
+        </div>
+
+        <div class="form-group col-sm-6">
+
+            <label><b>Supervisor Comment:</b> {{OrderManagementRequest.SupervisorComment}} </label>
+        </div>
+
+        <div class="form-group col-sm-6">
+
+            <label><b>Management Comment:</b> {{OrderManagementRequest.ManagementComment}} </label>
+        </div>
+        <div class="form-group col-sm-6">
+
+            <label><b>Final Approval Comment:</b> {{OrderManagementRequest.CEOComment}} </label>
+        </div>
+        @*<div class="form-group col-sm-6">
+
+                <label><b>Date Received:   {{OrderManagementRequest.StrRequestDate}}</b> </label>
+
+            </div>*@
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+    <hr />
+    <h3><label>Request Information</label></h3>
+
+    <hr />
+
+
+
+
+
+
+
+    <div class="row" ng-show="OrderManagementRequest.ID == 0">
+
+
+
+
+
+        <div class="form-group col-sm-6">
+            <select class="form-control" ng-model="OrderManagementRequest.PriorityID" required>
+
+                <option ng-value="0">Select Priority </option>
+                <option ng-repeat="c in ListPriority" ng-value="{{c.ID}}">{{c.Name}}</option>
+            </select>
+        </div>
+        <div class="form-group col-sm-6">
+            <select class="form-control" ng-model="OrderManagementRequest.TermOfServiceID" required>
+                <option ng-value="0">Select Type Of Service </option>
+                <option ng-repeat="c in ListTermsOfService" ng-value="{{c.ID}}">{{c.Name}}</option>
+            </select>
+        </div>
+
+        <div class="form-group col-sm-6">
+            <select class="form-control" ng-model="OrderManagementRequest.SupervisorID" required>
+
+                <option ng-value="0">Select Supervisor </option>
+                <option ng-repeat="c in ListSupervisor" ng-value="{{c.Id}}">{{c.Name}}</option>
+            </select>
+        </div>
+
+        <div class="form-group col-sm-6">
+            <select class="form-control" ng-model="OrderManagementRequest.ManagementID" required>
+
+                <option ng-value="0">Select Management </option>
+                <option ng-repeat="c in ListManegement" ng-value="{{c.Id}}">{{c.Name}}</option>
+            </select>
+        </div>
+
+        <div class="form-group col-sm-6">
+            <select class="form-control" ng-model="OrderManagementRequest.FinalApprovalID" required>
+
+                <option ng-value="0">Select Final Approval </option>
+                <option ng-repeat="c in ListFinalApproval" ng-value="{{c.Id}}">{{c.Name}}</option>
+            </select>
+        </div>
+
+        <div class="form-group col-sm-6">
+            <label><b>Date Received:   <span id="requestDate" ng-model="OrderManagementRequest.StrRequestDate">@DateTime.Now.ToString("yyyy-MM-dd h:mm tt")</span></b> </label>
+
+            @*<input type="text" data-provide="datepicker" class="form-control" readonly="readonly" placeholder="Date Received" value="" ng-model="user.LastName" />*@
+        </div>
+
+    </div>
+
+
+    <div class="row" ng-show="OrderManagementRequest.ID != 0">
+
+
+        <div class="form-group col-sm-6">
+            <label><b>Date Received:   <span id="requestDate" ng-model="OrderManagementRequest.StrRequestDate">@DateTime.Now.ToString("yyyy-MM-dd h:mm tt")</span></b> </label>
+
+            @*<input type="text" data-provide="datepicker" class="form-control" readonly="readonly" placeholder="Date Received" value="" ng-model="user.LastName" />*@
+        </div>
+
+
+        <div class="form-group col-sm-6">
+
+            <label><b>Priority:</b> {{OrderManagementRequest.PriorityName}} </label>
+        </div>
+
+        <div class="form-group col-sm-6">
+
+            <label><b>TermOfService:</b> {{OrderManagementRequest.TermOfServiceName}} </label>
+        </div>
+
+        @*<div class="form-group col-sm-6">
+
+                <label><b>Supervisor:</b> {{OrderManagementRequest.SupervisorName}} </label>
+            </div>*@
+
+        <div class="form-group col-sm-6">
+
+            <label><b>Location:</b> {{OrderManagementRequest.LocationName}} </label>
+        </div>
+
+
+    </div>
+    @if (User.IsInRole("Management"))
+    {
+        <div class="row" ng-show="OrderManagementRequest.ID != 0   && OrderManagementRequest.isUpdateByManagement != true  && OrderManagementRequest.isUpdateByCEO != true">
+
+            <div class="form-group col-sm-6">
+                <textarea class="form-control inputtxt" placeholder="Enter Comments" ng-model="OrderManagementRequest.ManagementComment" style="resize:none;"></textarea>
+            </div>
+
+
+
+            <div class="form-group col-sm-6">
+                <label>Select Status</label>
+                <select class="form-control" ng-model="OrderManagementRequest.RequestStatus" required>
+                    <option ng-value="0" selected>Status</option>
+                    <option ng-repeat="c in ListStatuses track by $index" value="{{c}}">{{c}}</option>
+                </select>
+            </div>
+        </div>
+    }
+
+    @if (User.IsInRole("Final Approval"))
+    {
+        <div class="row" ng-show="OrderManagementRequest.ID != 0   && OrderManagementRequest.isUpdateByCEO != true">
+
+            <div class="form-group col-sm-6">
+                <textarea class="form-control inputtxt" placeholder="Enter Comments" ng-model="OrderManagementRequest.CEOComment" style="resize:none;"></textarea>
+            </div>
+
+
+
+            <div class="form-group col-sm-6">
+                <label>Select Status</label>
+                <select class="form-control" ng-model="OrderManagementRequest.RequestStatus">
+                    <option ng-value="0" selected>Select Status</option>
+                    <option ng-repeat="c in ListStatuses track by $index" value="{{c}}">{{c}}</option>
+                </select>
+            </div>
+        </div>
+    }
+
+
+    @if (User.IsInRole("Supervisor"))
+    {
+        <div class="row" ng-show="OrderManagementRequest.ID != 0 && OrderManagementRequest.isPending== true">
+
+            <div class="form-group col-sm-6">
+                <textarea class="form-control inputtxt" placeholder="Enter Comments" ng-model="OrderManagementRequest.SupervisorComment" style="resize:none;"></textarea>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <label>Select Status</label>
+                <select class="form-control" ng-model="OrderManagementRequest.RequestStatus">
+                    <option ng-value="0" selected>Select Status</option>
+                    <option ng-repeat="c in ListStatuses track by $index" value="{{c}}">{{c}}</option>
+                </select>
+            </div>
+
+        </div>
+    }
+
+
+
+    <div class="row">
+        <div class="form-actions col-sm-6" style="text-align:right">
+            @if (User.IsInRole("Management"))
+            {
+                <a href="/OrderManagementRequest/ManagementDataFetch" id="lstLink" class="btn btn-light-grey go-back">
+                    <i class="fa fa-circle-arrow-left"></i> Back
+                </a>
+
+            }
+            @if (User.IsInRole("Final Approval"))
+            {
+                <a href="/OrderManagementRequest/FinalApprovalDataFetch" id="lstLink" class="btn btn-light-grey go-back">
+                    <i class="fa fa-circle-arrow-left"></i> Back
+                </a>
+
+            }
+            @if (User.IsInRole("Supervisor"))
+            {
+                <a href="/OrderManagementRequest/SupervisorDataFetch" id="lstLink" class="btn btn-light-grey go-back">
+                    <i class="fa fa-circle-arrow-left"></i> Back
+                </a>
+            }
+            @if (User.IsInRole("Requester"))
+            {
+                <a href="/OrderManagementRequest/RequesterDataFetch" id="lstLink" class="btn btn-light-grey go-back">
+                    <i class="fa fa-circle-arrow-left"></i> Back
+                </a>
+            }
+            &nbsp;
+
+            <a href="/" class="btn btn-info go-back">
+                <i class="fa fa-circle-arrow-left"></i> Cancel
+            </a>&nbsp;
+            @if (User.IsInRole("Requester"))
+            {
+                <button type="submit" id="ffff" class="btn btn-purple" ng-show="OrderManagementRequest.ID == 0  && OrderManagementRequest.isUpdateBySupervisor != true ">
+                    Submit <i class="fa fa-arrow-circle-right"></i>
+                </button>
+
+            }
+            @if (User.IsInRole("Supervisor"))
+            {
+                <button type="submit" class="btn btn-purple" ng-show="OrderManagementRequest.ID != 0 && OrderManagementRequest.isUpdateByManagement != true && OrderManagementRequest.isUpdateBySupervisor != true && OrderManagementRequest.isUpdateByCEO != true">
+                    Submit <i class="fa fa-arrow-circle-right"></i>
+                </button>
+            }
+            @if (User.IsInRole("Management")@*|| User.IsInRole("Final Approval")*@)
+          {
+              <button type="submit" class="btn btn-purple" ng-show="OrderManagementRequest.ID!=0  && OrderManagementRequest.isUpdateByManagement != true && OrderManagementRequest.isUpdateBySupervisor != true && OrderManagementRequest.isUpdateByCEO != true" >
+             Submit <i class="fa fa-arrow-circle-right"></i>
+           </button>
+          }
+
+            @if (User.IsInRole("Final Approval"))
+            {
+                <button type="submit" class="btn btn-purple" ng-show="OrderManagementRequest.ID!=0 && OrderManagementRequest.isUpdateByCEO != true">
+                    Submit <i class="fa fa-arrow-circle-right"></i>
+                </button>
+            }
+
+        </div>
+    </div>
+</form>
+
+@*<script>
+        $(document).ready(function ()
+        {
+
+            $("#ffff").on("click", function (e)
+            {
+                e.stopImmediatePropagation();
+                e.stopPropagation();
+                debugger;
+                var GetPhoneExt = $("#phoneex :selected").text();
+                if (GetPhoneExt == "SelectPhoneExt")
+                {
+                    $("#requestsetupform").submit(function ()
+                    {
+
+                        return false;
+                    });
+
+
+                }
+                else
+                {
+                    $("form").submit(function (e)
+                    {
+                        e.preventDefault();
+                        return false;
+                    });
+                }
+            });
+
+        })
+    </script>*@

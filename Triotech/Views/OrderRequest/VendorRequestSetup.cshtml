@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewBag.Title = "Request Setup";
+}
+<script src="~/Angular/OrderRequest/VendorRequestSetup.js"></script>
+<form ng-controller="RequestController" name="RequestForm" ng-submit="SubmitForm()">
+    <h3>Title: {{request.Title}}</h3>
+
+    <hr />
+
+
+    <div class="row">
+        <div ng-repeat="x in request.ProductRequests track by $index">
+            <div class="form-group col-sm-6">
+                <h4>{{$index+1}}. Category:</h4><h5> {{x.CategoryName}}</h5>
+            </div>
+            <div class="form-group col-sm-6">
+                <h4>Product:</h4><h5> {{x.ProductName}}</h5>
+            </div>
+        </div>
+        <div class="form-group col-sm-6">
+            <h4>Buyer Description:</h4> <p>{{request.BuyerDescription}}</p>
+        </div>
+    </div>
+    <div class="row" ng-show="request.isEdited == false">
+        <div class="form-group col-sm-6">
+            <input class="form-control inputtxt" type="text" placeholder="Qoutation"  ng-model="request.Qoutation1" oninput="this.value = this.value.replace(/[^\d.}]/g, '').replace(/(\..*)\./g, '$1')"  required />
+        </div>
+        @*<div class="form-group col-sm-6">
+                <input class="form-control inputtxt" type="text" placeholder="Qoutation2" ng-model="request.Qoutation2" oninput="this.value = this.value.replace(/(?!^-)[^\d]+/g, '')" required />
+            </div>
+            <div class="form-group col-sm-6">
+                <input class="form-control inputtxt" type="text" placeholder="Qoutation3" ng-model="request.Qoutation3" oninput="this.value = this.value.replace(/(?!^-)[^\d]+/g, '')" required />
+            </div>*@
+        @*</div>
+            <div class="row">*@
+        <div class="form-group col-sm-6">
+            <textarea class="form-control inputtxt" ng-model="request.VendorDescription" placeholder="Description" style="resize:none;"></textarea>
+        </div>
+        <div class="form-group col-sm-6">
+            <textarea class="form-control inputtxt" ng-model="request.Comment" placeholder="Coments" style="resize:none;"></textarea>
+        </div>
+
+    </div>
+    <div class="row" ng-show="request.isEdited == true">
+        <div class="form-group col-sm-6">
+            <h4>Sent Qoutation:</h4> <p>{{request.Qoutation1}}</p>
+        </div>
+        <div class="form-group col-sm-6">
+            <h4>Sent Description:</h4> <p>{{request.VendorDescription}}</p>
+        </div>
+        <div class="form-group col-sm-6">
+            <h4>Sent Comment:</h4> <p>{{request.Comment}}</p>
+        </div>
+
+    </div>
+
+
+    @*<div class="row" ng-show="request.isEdited == false">
+
+        <div class="form-group col-sm-6">
+            <select class="form-control inputddl" id="requestStatusDdl" ng-model="request.StatusID" required>
+                <option ng-value="0">Select Status</option>
+                <option ng-repeat="s in lstStatus" ng-value="{{s.ID}}">{{s.Name}}</option>
+            </select>
+        </div>
+
+
+    </div>*@
+
+
+    <div class="row">
+        <div class="form-actions col-sm-6" style="text-align:right">
+            <a href="/OrderRequest/RequestSetup" class="btn btn-light-grey go-back">
+                <i class="fa fa-circle-arrow-left"></i> Back
+            </a>&nbsp;
+            <a href="/" class="btn btn-info go-back">
+                <i class="fa fa-circle-arrow-left"></i> Cancel
+            </a>&nbsp;
+            <button type="submit" class="btn btn-purple" ng-show="request.isEdited == false">
+                Submit <i class="fa fa-arrow-circle-right"></i>
+            </button>
+            &nbsp;
+            <button class="btn btn-info" onclick="PrintElem('printElement')">
+                Print
+            </button>
+        </div>
+    </div>
+    <div id="printElement" style="display:none;">
+        <h3>Title: {{request.Title}}</h3>
+        <hr />
+        <h3>Requester: {{request.RequesterName}}</h3>
+        <h3>Buyer: {{request.BuyerName}}</h3>
+        <div class="row">
+            <div ng-repeat="x in request.ProductRequests track by $index">
+
+                <div class="form-group col-sm-6">
+                    <h4>{{$index+1}}. Category:</h4><h5> {{x.CategoryName}}</h5>
+                </div>
+                <div class="form-group col-sm-6">
+                    <h4>Product:</h4><h5> {{x.ProductName}}</h5>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-sm-6">
+            <h4>Buyer Description:</h4> <p>{{request.BuyerDescription}}</p>
+        </div>
+    </div>
+
+</form>

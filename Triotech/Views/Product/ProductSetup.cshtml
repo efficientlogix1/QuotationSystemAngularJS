@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Product Setup";
+}
+<script src="~/Angular/Product/ProductSetup.js"></script>
+<h4>
+    Enter product details below:
+</h4>
+<form ng-controller="ProductController" name="CategoryForm" ng-submit="SubmitForm()">
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <select class="form-control" ng-model="product.CategoryID">
+                <option ng-value="0">select category</option>
+                <option ng-repeat="c in lstCategories" ng-value="{{c.ID}}">{{c.Name}}</option>
+            </select>
+        </div>
+        <div class="form-group col-sm-6">
+            <input class="form-control" type="text" placeholder="Name" ng-model="product.Name" required />
+        </div>
+        <div class="form-group col-sm-6">
+            <input class="form-control" type="text" placeholder="Code" ng-model="product.Code" required />
+        </div>
+        <div class="form-group col-sm-6">
+            <input class="form-control" type="text" placeholder="Descrition" ng-model="product.Description" />
+        </div>
+
+      
+        <div class="form-group col-sm-6">
+            <label>Status: <input type="checkbox" ng-model="product.IsActive" /></label>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="form-actions col-sm-6" style="text-align:right">
+            <a href="/Product/ProductList" class="btn btn-light-grey go-back">
+                <i class="fa fa-circle-arrow-left"></i> Back
+            </a>&nbsp;
+            <a href="/" class="btn btn-info go-back">
+                <i class="fa fa-circle-arrow-left"></i> Cancel
+            </a>&nbsp;
+            <button type="submit" class="btn btn-purple">
+                Submit <i class="fa fa-arrow-circle-right"></i>
+            </button>
+        </div>
+    </div>
+    
+</form>
+

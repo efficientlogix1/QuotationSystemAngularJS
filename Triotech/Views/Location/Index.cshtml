@@ -1,0 +1,54 @@
+﻿@{
+                ViewBag.Title = "Location List";
+}
+
+
+<script src="~/Angular/Location/Location.js"></script>
+<div class="row" ng-controller="LocationController" id="DivLocationManagement">
+    <div class="col-md-12">
+
+        <div class="panel">
+            <div class="panel-body">
+                <form class="row mt1" ng-submit="LocationFetch()">
+                    <div class="col-sm-6">
+                        <div class="input-group">
+                            <input class="form-control" ng-model="LocationSearch.Search" placeholder="Search ...">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-primary col-xs-12"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div><!-- /input-group -->
+                    </div>
+                    <div class="col-sm-2">
+                        <select class="form-control select" ng-change="LocationFetch()" ng-model="LocationSearch.Active">
+                            <option value="">All Statuses</option>
+                            <option value="1">Active</option>
+                            <option value="0">Inactive</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-primary pull-right" ng-click="AddLocationModalOpen()"><i class="fa fa-plus fa-fw"></i> Add Location</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="panel panel-default collapsed">
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table id="LocationTable" class="table table-striped table-hover dt-edit" style="margin-top:-1px !important; width: 100% !important">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_LocationSetup");
+</div>

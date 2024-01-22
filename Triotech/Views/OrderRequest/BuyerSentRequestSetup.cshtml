@@ -1,0 +1,144 @@
+﻿
+@{
+    ViewBag.Title = "Request Setup";
+}
+<script src="~/Angular/OrderRequest/BuyerSentRequestSetup.js"></script>
+
+<div ng-controller="RequestController">
+    <div class="row">
+        <div class="col-sm-2">
+
+            <h4>Vendor</h4>
+        </div>
+        <div class="col-sm-2">
+            <select class="form-control select" id="requestddl" ng-change="OrderFetch()" ng-model="request.VendorRequestID">
+                
+                <option ng-repeat="s in lstVendorDdl" ng-value="{{s.ID}}">{{s.Name}}</option>
+            </select>
+        </div>
+        <div class="col-sm-2">
+
+            <h4>Company:</h4>
+        </div>
+        <div class="col-sm-2">
+            <h5>{{request.VendorCompany}}</h5>
+        </div>
+    </div>
+    <form name="RequestForm" ng-submit="SubmitForm()">
+        <h3>Title: {{request.Title}}</h3>
+
+        <hr />
+        <div class="row">
+            <div ng-repeat="x in request.ProductRequests track by $index">
+                <div class="form-group col-sm-6">
+                    <h4>{{$index+1}}. Category:</h4><h5> {{x.CategoryName}}</h5>
+                </div>
+                <div class="form-group col-sm-6">
+                    <h4>Product:</h4><h5> {{x.ProductName}}</h5>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" ng-show="request.Qoutation1 != null">
+
+            <div class="form-group col-sm-6">
+                <h4>Vendor Name:</h4><h5> {{request.VendorName}}</h5>
+            </div>
+            <div class="form-group col-sm-6">
+                <h4>Vendor's Description:</h4> <p>{{request.VendorDescription}}</p>
+            </div>
+            <div class="form-group col-sm-6">
+                <h4>Vendor's Comments:</h4> <p>{{request.Comment}}</p>
+            </div>
+            <div class="form-group col-sm-6">
+                <h4>Sent Price:</h4> <p ng-show="request.BuyerPrice != 0">${{request.BuyerPrice}}</p><p ng-show="request.BuyerPrice == 0">No Price Saved</p>
+            </div>
+            <div class="form-group col-sm-6">
+                  <h4>VendorPrice:</h4> ${{request.Qoutation1}}
+                @*<label>
+                    Select Price
+                </label>*@
+                @*<select class="form-control inputddl" id="requestStatusDdl" ng-model="request.SelectedBuyerPrice" required>
+                    <option ng-value="0">Select Price</option>
+                    <option ng-repeat="s in request.lstPrice track by $index" ng-value="{{s}}">{{s}}</option>
+                </select>*@
+            </div>
+            <div class="form-group col-sm-6" ng-show="request.BuyerPrice == 0">
+                <label>
+                    Select Action
+                </label>
+                <select class="form-control inputddl" id="requestActionDdl" ng-model="request.ActionID" required>
+                    <option ng-value="0">Select Action</option>
+                    <option ng-repeat="a in lstActions" ng-value="{{a.ID}}">{{a.Name}}</option>
+                </select>
+            </div>
+
+        </div>
+        <div class="row" ng-show="request.Qoutation1 == null">
+
+            <div class="form-group col-sm-6">
+                <h4>Selected vendor has not responded yet</h4>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="form-actions col-sm-6" style="text-align:right">
+                <a href="/OrderRequest/BuyerRequestList" class="btn btn-light-grey go-back">
+                    <i class="fa fa-circle-arrow-left"></i> Back
+                </a>&nbsp;
+                <a href="/" class="btn btn-info go-back">
+                    <i class="fa fa-circle-arrow-left"></i> Cancel
+                </a>&nbsp;
+                <button type="submit" class="btn btn-purple" ng-show="request.Qoutation1 != null && request.BuyerPrice == 0">
+                    Send To Requester <i class="fa fa-arrow-circle-right"></i>
+                </button>
+                &nbsp;
+                <button class="btn btn-info" onclick="PrintElem('printElement')" ng-show="request.Qoutation1 != null">
+                    Print
+                </button>
+            </div>
+        </div>
+        <div id="printElement" style="display:none;">
+            <h3>Title: {{request.Title}}</h3>
+            <hr />
+            <h3>Requester: {{request.RequesterName}}</h3>
+            <h3>Vendor: {{request.VendorName}}</h3>
+            <div class="row">
+                <div ng-repeat="x in request.ProductRequests track by $index">
+
+                    <div class="form-group col-sm-6">
+                        <h4>{{$index+1}}. Category:</h4><h5> {{x.CategoryName}}</h5>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <h4>Product:</h4><h5> {{x.ProductName}}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-sm-6">
+                <h4>Vendor Name:</h4><h5> {{request.VendorName}}</h5>
+            </div>
+            <div class="form-group col-sm-6">
+                <h4>Vendor's Description:</h4> <p>{{request.VendorDescription}}</p>
+            </div>
+            <div class="form-group col-sm-6">
+                <h4>Vendor's Comments:</h4> <p>{{request.Comment}}</p>
+            </div>
+            <div class="form-group col-sm-6">
+                <h4>Qoutation:</h4> {{request.Qoutation1}}
+
+            </div>
+            @*<div class="form-group col-sm-6">
+                    <h4>Qoutation 2:</h4> {{request.Qoutation2}}
+
+                </div>
+                <div class="form-group col-sm-6">
+                    <h4>Qoutation 3:</h4> {{request.Qoutation3}}
+
+                </div>*@
+        </div>
+    </form>
+</div>
+
+

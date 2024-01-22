@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Admin Setup";
+}
+<script src="~/Angular/User/UserSetup.js"></script>
+<h3>
+    Enter admin details below:
+</h3>
+<hr />
+<form  ng-controller="UserSetupController" name="UserForm" ng-submit="SubmitAdminFormForm()">
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <input type="text" class="form-control" placeholder="Username" ng-model="user.Username" required/>
+        </div>
+        <div class="form-group col-sm-6">
+            <input type="email" class="form-control" placeholder="Email" ng-model="user.Email"  required/>
+        </div>
+
+        <div class="form-group col-sm-6">
+            <input type="password" class="form-control" placeholder="Password" ng-model="user.Password"  required/>
+        </div>
+        <div class="form-group col-sm-6">
+            <input type="password" class="form-control" id="test1" placeholder="ConfirmPassword" ng-model="user.ConfirmPassword"  required />
+        </div>
+        <div class="form-group col-sm-6">
+            <input type="hidden" class="form-control" ng-model="user.UserId" />
+            <input type="text" class="form-control" placeholder="First Name" ng-model="user.FirstName"  required/>
+        </div>
+        <div class="form-group col-sm-6">
+            <input type="text" class="form-control" placeholder="Last Name" ng-model="user.LastName" />
+        </div>
+        <div class="form-group col-sm-6">
+            <input type="text" class="form-control" placeholder="Country" ng-model="user.Country" />
+        </div>
+        <div class="form-group col-sm-6">
+            <input type="text" class="form-control" placeholder="City" ng-model="user.City" />
+        </div>
+        <div class="form-group col-sm-6">
+            <input type="text" class="form-control" placeholder="State" ng-model="user.State" />
+        </div>
+        <div class="form-group col-sm-6">
+            <input type="text" class="form-control" placeholder="Street" ng-model="user.Street" />
+        </div>
+        <div class="form-group col-sm-6">
+            <input type="text" class="form-control" placeholder="Near" ng-model="user.Near" />
+        </div>
+        <div class="form-group col-sm-6">
+            <input type="text" class="form-control" placeholder="Postal Code" ng-model="user.PostalCode" />
+        </div>
+        <div class="form-group col-sm-6">
+            <label>Status: <input type="checkbox" ng-model="user.IsActive" /></label>
+            
+        </div>
+
+
+
+
+    </div>
+    <div class="row">
+        <div class="form-actions col-sm-6" style="text-align:right">
+            <a href="/User/AdminList" class="btn btn-light-grey go-back">
+                <i class="fa fa-circle-arrow-left"></i> Back
+            </a>&nbsp;
+            <a href="/" class="btn btn-info go-back">
+                <i class="fa fa-circle-arrow-left"></i> Cancel
+            </a>&nbsp;
+            <button type="submit" class="btn btn-purple">
+                Submit <i class="fa fa-arrow-circle-right"></i>
+            </button>
+        </div>
+    </div>
+</form>

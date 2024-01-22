@@ -1,0 +1,320 @@
+﻿@using Microsoft.AspNet.Identity
+@{
+    if (User.IsInRole("Admin"))
+    {
+        ViewBag.Title = "Admin Dashboard";
+    }
+    if (User.IsInRole("Vendor"))
+    {
+        ViewBag.Title = "Vendor Dashboard";
+    }
+    if (User.IsInRole("Buyer"))
+    {
+        ViewBag.Title = "Buyer Dashboard";
+    }
+    if (User.IsInRole("Requester"))
+    {
+        ViewBag.Title = "Requester Dashboard";
+    }
+    if (User.IsInRole("Supervisor"))
+    {
+        ViewBag.Title = "Supervisor Dashboard";
+    }
+    if (User.IsInRole("Management"))
+    {
+        ViewBag.Title = "Management Dashboard";
+    }
+    if (User.IsInRole("Final Approval"))
+    {
+        ViewBag.Title = "Final Approval Dashboard";
+    }
+}
+
+
+<!-- start: PAGE CONTENT -->
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="row space12">
+            <ul class="mini-stats col-sm-12">
+                @if (User.IsInRole("Admin"))
+                {
+                    <li class="col-sm-3">
+                        <div class="sparkline_bar_good">
+                            <span>3,5,9,8,13,11,14</span>
+                        </div>
+                        <div class="values">
+                            @*<strong>2</strong>
+                    Admins*@
+                            @Html.Raw(ViewBag.Value1)
+                        </div>
+                    </li>
+                    <li class="col-sm-3">
+                        <div class="sparkline_bar_neutral">
+                            <span>20,15,18,14,10,12,15,20</span>
+                        </div>
+                        <div class="values">
+                            @*<strong>10</strong>
+                    Buyers*@
+                            @Html.Raw(ViewBag.Value2)
+                        </div>
+                    </li>
+                    <li class="col-sm-3">
+                        <div class="sparkline_bar_bad">
+                            <span>4,6,10,8,12,21,11</span>
+                        </div>
+                        <div class="values">
+                            @*<strong>20</strong>
+                    Vendors*@
+                            @Html.Raw(ViewBag.Value3)
+                        </div>
+                    </li>
+                    <li class="col-sm-3">
+                        <div class="sparkline_bar_neutral">
+                            <span>4,6,10,8,12,21,11</span>
+                        </div>
+                        <div class="values">
+                            @*<strong>20</strong>
+                    Requesters*@
+                            @Html.Raw(ViewBag.Value4)
+                        </div>
+                    </li>
+
+                    <li class="col-sm-3">
+                        <div class="sparkline_bar_good">
+                            <span>4,6,10,8,12,21,11</span>
+                        </div>
+                        <div class="values">
+                            @*<strong>20</strong>
+                    Requesters*@
+                            @Html.Raw(ViewBag.Value5)
+                        </div>
+                    </li>
+                    <li class="col-sm-3">
+                        <div class="sparkline_bar_bad">
+                            <span>4,6,10,8,12,21,11</span>
+                        </div>
+                        <div class="values">
+                            @*<strong>20</strong>
+                    Vendors*@
+                            @Html.Raw(ViewBag.Value6)
+                        </div>
+                    </li>
+                    <li class="col-sm-3">
+                        <div class="sparkline_bar_neutral">
+                            <span>20,15,18,14,10,12,15,20</span>
+                        </div>
+                        <div class="values">
+                            @*<strong>10</strong>
+                    Buyers*@
+                            @Html.Raw(ViewBag.Value7)
+                        </div>
+                    </li>
+                }
+                else
+                {
+                    <li class="col-sm-4">
+                        <div class="sparkline_bar_good">
+                            <span>3,5,9,8,13,11,14</span>
+                        </div>
+                        <div class="values">
+                            @*<strong>2</strong>
+                    Admins*@
+                            @Html.Raw(ViewBag.Value1)
+                        </div>
+                    </li>
+                    <li class="col-sm-4">
+                        <div class="sparkline_bar_neutral">
+                            <span>20,15,18,14,10,12,15,20</span>
+                        </div>
+                        <div class="values">
+                            @*<strong>10</strong>
+                    Buyers*@
+                            @Html.Raw(ViewBag.Value2)
+                        </div>
+                    </li>
+                    <li class="col-sm-4">
+                        <div class="sparkline_bar_bad">
+                            <span>4,6,10,8,12,21,11</span>
+                        </div>
+                        <div class="values">
+                            @*<strong>20</strong>
+                    Vendors*@
+                            @Html.Raw(ViewBag.Value3)
+                        </div>
+                    </li>
+                }
+
+            </ul>
+        </div>
+    </div>
+    @if (User.IsInRole("Admin"))
+    {
+
+        <div class="col-sm-12">
+            <!-- start: CATEGORIES PANEL -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Application Users
+                </div>
+                <div class="panel-body">
+                    <div class="flot-small-container">
+                        <div id="placeholder9" class="flot-placeholder"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- end: CATEGORIES PANEL -->
+        </div>
+        <script src="~/Assets/plugins/flot/jquery.flot.pie.min.js"></script>
+
+        <script>
+            PlotPieChart();
+            function labelFormatter(label, series) {
+                return "<div style='font-size:8pt; text-align:center; padding:2px; color:white;'>" + label + "<br/>" + Math.round(series.percent) + "%</div>";
+            }
+            function PlotPieChart() {
+                // Default Pie
+                var data_pie = [];
+                for (var i = 0; i < 7; i++) {
+                    if (i == 0) {
+                    data_pie[i] = { label: 'Admins', data: @ViewBag.admins };
+                    }
+                    if (i == 1) {
+                    data_pie[i] = { label: 'Buyers', data: @ViewBag.buyers };
+                    }
+                    if (i == 2) {
+                    data_pie[i] = { label: 'Vendors', data: @ViewBag.vendors };
+                    }
+                    if (i == 3) {
+                    data_pie[i] = { label: 'Requesters', data:@ViewBag.requesters };
+                    }
+                    if (i == 4) {
+                        data_pie[i] = { label: 'Supervisor', data:@ViewBag.supervisor};
+                    }
+                     if (i == 5) {
+                         data_pie[i] = { label: 'Management', data:@ViewBag.management};
+                    }
+                     if (i == 6) {
+                         data_pie[i] = { label: 'Final Approval', data:@ViewBag.finalApproval};
+                    }
+                }
+                @*data_pie[0] = { label: 'Admins', data: @ViewBag.admins };
+                data_pie[1] = { label: 'Buyers', data: @ViewBag.buyers };
+                data_pie[2] = { label: 'Vendors', data: @ViewBag.vendors };
+                data_pie[3]={ label: 'Requesters', data:@ViewBag.requesters };*@
+                $.plot('#placeholder9', data_pie, {
+                    series: {
+                        pie: {
+                            show: true,
+                            radius: 1,
+                            label: {
+                                show: true,
+                                radius: 3 / 4,
+                                formatter: labelFormatter,
+                                background: {
+                                    opacity: 0.5,
+                                    color: '#000'
+                                }
+                            }
+                        }
+                    },
+                    legend: {
+                        show: false
+                    }
+                });
+            }
+        </script>
+    }
+    @if (User.IsInRole("Buyer") || User.IsInRole("Admin"))
+    {
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                <h4>Please select a daterange</h4>
+                <div class="input-group">
+                    <span class="input-group-addon"> <i class="fa fa-calendar"></i> </span>
+                    <input type="text" class="form-control" id="daterange" onchange="changeDate()" readonly>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-sm-6"></div>
+        <div class="col-sm-12">
+            <!-- start: CATEGORIES PANEL -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Buyer Income
+                </div>
+                <div class="panel-body">
+                    <div class="flot-small-container">
+                        <div id="placeholder5" class="flot-placeholder"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- end: CATEGORIES PANEL -->
+        </div>
+
+    }
+</div>
+<!-- end: PAGE CONTENT-->
+<script>
+    jQuery(document).ready(function () {
+        Index.init();
+    });
+</script>
+<script src="~/Assets/plugins/flot/jquery.flot.categories.js"></script>
+<script>
+
+
+    $('#daterange').daterangepicker({
+        ranges: {
+            'Today': [moment(), moment()],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        },
+        "startDate": moment(),
+        "endDate": moment()
+    });
+    $('#daterange').val('');
+    function changeDate() {
+        Get('/home/GetBuyerData?strDateRange=' + $('#daterange').val(), true).then(function (d) {
+            if (d.msg.Success) {
+                var data_category = [];
+                if (d.Data.length > 0) {
+                    for (var i = 0; i < d.Data.length; i++) {
+                        var strDate = d.Data[i].StrStartDate;
+                        var price = d.Data[i].BuyerPrice;
+                        var category = [strDate, price];
+                        data_category.push(category);;
+                    }
+
+                }
+                else {
+                    WarningMessage("No record found against selected dates");
+                }
+                $.plot("#placeholder5", [data_category], {
+                    series: {
+                        bars: {
+                            show: true,
+                            barWidth: 0.6,
+                            align: "center",
+                            fillColor: "#4DBEF4",
+                            lineWidth: 0,
+                        }
+                    },
+                    xaxis: {
+                        mode: "categories",
+                        tickLength: 0
+                    }
+                });
+            }
+            else {
+                ShowMessage(d.msg);
+            }
+        });
+    }
+</script>

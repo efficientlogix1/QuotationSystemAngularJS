@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{143CE884-9511-4A2B-BA9F-C6BB50BE0735}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DAL</RootNamespace>
+    <AssemblyName>DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActivityLog.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetRole.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUser.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserClaim.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserLogin.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BuyerRequest.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Category.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Department.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmailTemplate.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchActivityLog_Result.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchAdminOrderRequests_Result.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchBuyerBusinessRecord_Result.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchBuyerPendingOrderRequests_Result.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchBuyerSentOrderRequests_Result.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchCategories_Result.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchCompleteRequesterRequestList_Result.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchDepartment_Result.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchFinalAprovalOrderManagementRequests_Result.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchLocation_Result.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchManagementOrderManagementRequests_Result.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchPhoneExt_Result.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchPriority_Result.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchProducts_Result.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchRequesterOrderManagementRequests_Result.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchRequesterOrderRequests_Result.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchSupervisorOrderManagementRequests_Result.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchTermOfServices_Result.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchUser_Result.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchVendorOrderRequests_Result.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchVisitor_Result.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Location.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Metadata.cs" />
+    <Compile Include="OrderManagementRequest.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderRequest.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderRequestAction.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderRequestStatu.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PhoneExt.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Priority.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductRequest.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequesterRequest.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SqlHelper.cs" />
+    <Compile Include="TermsOfService.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrioTechModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrioTechModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrioTechModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrioTechModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrioTechModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="VendorRequest.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Visitor.cs">
+      <DependentUpon>TrioTechModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <EntityDeploy Include="TrioTechModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TrioTechModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="TrioTechModel.edmx.diagram">
+      <DependentUpon>TrioTechModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TrioTechModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TrioTechModel.edmx</DependentUpon>
+      <LastGenOutput>TrioTechModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="TrioTechModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TrioTechModel.edmx</DependentUpon>
+      <LastGenOutput>TrioTechModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

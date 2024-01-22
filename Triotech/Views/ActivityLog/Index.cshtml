@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "Activity Log Management";
+}
+
+<script src="~/Angular/ActivityLog/ActivityLog.js"></script>
+<div class="row" ng-controller="ActivityLogController" id="DivActivityLogManagement">
+    <div class="col-md-12">
+
+        <div class="panel">
+            <div class="panel-body">
+                <form class="row mt1" ng-submit="ActivityLogFetch()">
+                    <div class="col-sm-4">
+                        <div class="input-group">
+                            <input class="form-control" style="width: 350px;" ng-model="ActivityLogSearch.Search" placeholder="Search ...">
+                            @*<span class="input-group-btn">
+                                    <button type="submit" class="btn btn-primary col-xs-12"><i class="fa fa-search"></i></button>
+                                </span>*@
+                        </div><!-- /input-group -->
+                    </div>
+                    @*<div class="col-sm-2">
+                            <select class="form-control select" ng-change="UserRoleFetch()" ng-model="userRoleSearch.Active">
+                                <option value="">All Statuses</option>
+                                <option value="1">Active</option>
+                                <option value="0">Inactive</option>
+                            </select>
+                        </div>*@
+                    <div class="col-sm-4">
+                        <div class="input-group">
+
+                            <input type="text" name="datefilter" class="form-control daterange-basic col-xs-12" ng-model="ActivityLogSearch.SearchDateRange" placeholder="Select Date&hellip;" value="" />
+                            <span class="input-group-addon">
+                                <i class="icmn-calendar"></i>
+                            </span>
+                        </div>
+                    </div>
+                    @*<div class="col-sm-1">
+                            <button type="submit">
+                                <i class="@Profiler.BtnSearchIcon"></i>
+                                <span class="ladda-label">Search</span>
+                                <span class="ladda-spinner"></span>
+                            </button>
+                        </div>*@
+                    <div class="col-sm-2">
+                        <div class="input-group">
+                            @*<input class="form-control" ng-model="ActivityLogSearch.Search" placeholder="Search ...">*@
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-primary col-xs-12"><i class="fa fa-search"></i> Search</button>
+                            </span>
+                        </div><!-- /input-group -->
+                    </div>
+                    @*<div class="col-sm-4">
+                            <a class="btn btn-primary pull-right" href="/ActivityLog/Create"><i class="fa fa-plus fa-fw"></i> Add Sales Transaction</a>
+                        </div>*@
+                </form>
+            </div>
+        </div>
+
+
+        <div class="panel panel-default collapsed">
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table id="ActivityLogTable" class="table table-striped table-hover dt-edit" style="margin-top:-1px !important; width: 100% !important">
+                        <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Username</th>
+                                <th>Action</th>
+                                <th>Detail</th>
+                                <th>Date</th>
+
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('.daterange-basic').daterangepicker({
+        applyClass: 'bg-slate-600',
+        cancelClass: 'btn-default',
+        locale: {
+            format: 'DD/MM/YYYY',
+        }
+    });
+
+    $('.daterange-basic').val('');
+
+    $('.daterange-basic').on('cancel.daterangepicker', function (ev, picker) {
+        $(this).val('');
+    });
+</script>
+

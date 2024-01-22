@@ -1,0 +1,654 @@
+﻿<!DOCTYPE html>
+<!-- Template Name: Clip-One - Responsive Admin Template build with Twitter Bootstrap 3.x Version: 1.4 Author: ClipTheme -->
+<!--[if IE 8]><html class="ie8 no-js" lang="en"><![endif]-->
+<!--[if IE 9]><html class="ie9 no-js" lang="en"><![endif]-->
+<!--[if !IE]><!-->
+<html lang="en-us" class="no-js">
+<!--<![endif]-->
+<!-- start: HEAD -->
+<head>
+    <title>@ViewBag.Title - Triotech</title>
+    <!-- start: META -->
+    <meta charset="utf-8" />
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <!-- end: META -->
+    <!-- start: MAIN CSS -->
+    <link rel="stylesheet" href="~/Assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Assets/fonts/style.css">
+    <link rel="stylesheet" href="~/Assets/css/main.css">
+    <link rel="stylesheet" href="~/Assets/css/main-responsive.css">
+    <link rel="stylesheet" href="~/Assets/plugins/iCheck/skins/all.css">
+    <link rel="stylesheet" href="~/Assets/plugins/bootstrap-colorpalette/css/bootstrap-colorpalette.css">
+    <link rel="stylesheet" href="~/Assets/plugins/perfect-scrollbar/src/perfect-scrollbar.css">
+    <link rel="stylesheet" href="~/Assets/css/theme_light.css" type="text/css" id="skin_color">
+    <link rel="stylesheet" href="~/Assets/css/print.css" type="text/css" media="print" />
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="~/Assets/plugins/font-awesome/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!-- end: MAIN CSS -->
+    <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+    <link rel="stylesheet" href="~/Assets/plugins/fullcalendar/fullcalendar/fullcalendar.css">
+    <link rel="stylesheet" href="~/Assets/plugins/select2/select2.css">
+    <link rel="stylesheet" href="~/Assets/plugins/datepicker/css/datepicker.css">
+    <link rel="stylesheet" href="~/Assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css">
+    <link rel="stylesheet" href="~/Assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css">
+    <link rel="stylesheet" href="~/Assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css">
+    <link rel="stylesheet" href="~/Assets/plugins/jQuery-Tags-Input/jquery.tagsinput.css">
+    <link rel="stylesheet" href="~/Assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.css">
+    <link rel="stylesheet" href="~/Assets/plugins/summernote/build/summernote.css">
+    <link href="~/Assets/plugins/datatablesCopied/media/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="~/Assets/plugins/DataTables/media/css/DT_bootstrap.css" />*@
+    <link href="~/Assets/plugins/toast/jquerytoastmin.css" rel="stylesheet" />
+    <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+    <link rel="shortcut icon" href="~/Assets/favicon.ico" />
+    <style>
+        #divLoader {
+            position: fixed;
+            background-color: #FAFAFA;
+            z-index: 2147483647 !important;
+            opacity: 0.8;
+            overflow: hidden;
+            text-align: center;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            padding-top: 20%;
+        }
+    </style>
+</head>
+<!-- end: HEAD -->
+<!-- start: BODY -->
+<body ng-app="TioTechModule" class="header-default">
+    <!-- start: MAIN JAVASCRIPTS -->
+    <!--[if lt IE 9]>
+    <script src="~/Assets/plugins/respond.min.js"></script>
+    <script src="~/Assets/plugins/excanvas.min.js"></script>
+    <script type="text/javascript" src="~/Assets/plugins/jQuery-lib/1.10.2/jquery.min.js"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+    <script src="~/Assets/plugins/jQuery-lib/2.0.3/jquery.min.js"></script>
+    <!--<![endif]-->
+    <script src="~/Assets/plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+    <script src="~/Assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"></script>
+    <script src="~/Assets/plugins/blockUI/jquery.blockUI.js"></script>
+    <script src="~/Assets/plugins/iCheck/jquery.icheck.min.js"></script>
+    <script src="~/Assets/plugins/perfect-scrollbar/src/jquery.mousewheel.js"></script>
+    <script src="~/Assets/plugins/perfect-scrollbar/src/perfect-scrollbar.js"></script>
+    <script src="~/Assets/plugins/less/less-1.5.0.min.js"></script>
+    <script src="~/Assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+    <script src="~/Assets/plugins/bootstrap-colorpalette/js/bootstrap-colorpalette.js"></script>
+    <script src="~/Assets/js/main.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+
+    <!-- end: MAIN JAVASCRIPTS -->
+    <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+    <script src="~/Assets/plugins/flot/jquery.flot.js"></script>
+    <script src="~/Assets/plugins/flot/jquery.flot.pie.js"></script>
+    <script src="~/Assets/plugins/flot/jquery.flot.resize.min.js"></script>
+    <script src="~/Assets/plugins/jquery.sparkline/jquery.sparkline.js"></script>
+    <script src="~/Assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>
+    <script src="~/Assets/plugins/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+    <script src="~/Assets/plugins/fullcalendar/fullcalendar/fullcalendar.js"></script>
+    <script src="~/Assets/js/index.js"></script>
+    <script src="~/Assets/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min.js"></script>
+    <script src="~/Assets/plugins/autosize/jquery.autosize.min.js"></script>
+    <script src="~/Assets/plugins/select2/select2.min.js"></script>
+    <script src="~/Assets/plugins/jquery.maskedinput/src/jquery.maskedinput.js"></script>
+    <script src="~/Assets/plugins/jquery-maskmoney/jquery.maskMoney.js"></script>
+    <script src="~/Assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="~/Assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+    <script src="~/Assets/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+    <script src="~/Assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="~/Assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+    @*<script src="~/Assets/plugins/bootstrap-colorpicker/js/commits.js"></script>*@
+    <script src="~/Assets/plugins/jQuery-Tags-Input/jquery.tagsinput.js"></script>
+    <script src="~/Assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
+    <script src="~/Assets/plugins/summernote/build/summernote.min.js"></script>
+    <script src="~/Assets/plugins/ckeditor/ckeditor.js"></script>
+    <script src="~/Assets/plugins/ckeditor/adapters/jquery.js"></script>
+    <script src="~/Assets/js/form-elements.js"></script>
+    <script type="text/javascript" src="~/Assets/plugins/bootbox/bootbox.min.js"></script>
+    <script type="text/javascript" src="~/Assets/plugins/jquery-mockjax/jquery.mockjax.js"></script>
+    <script type="text/javascript" src="~/Assets/plugins/select2/select2.min.js"></script>
+    <script src="~/Assets/plugins/datatablesCopied/media/js/jquery.dataTables.min.js"></script>
+    <script src="~/Assets/plugins/datatablesCopied/media/js/dataTables.bootstrap4.js"></script>
+    <script src="~/Assets/plugins/datatables-fixedcolumns/js/dataTables.fixedColumns.js"></script>
+    <script src="~/Assets/plugins/datatables-responsive/js/dataTables.responsive.js"></script>
+
+    @*<script type="text/javascript" src="~/Assets/plugins/DataTables/media/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="~/Assets/plugins/DataTables/media/js/DT_bootstrap.js"></script>*@
+    <script src="~/Assets/js/table-data.js"></script>
+    <script src="~/Assets/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/Assets/js/form-validation.js"></script>
+    <script src="~/Assets/plugins/toast/jquerytoastmin.js"></script>
+    <script src="~/Angular/Generic.js"></script>
+    <script src="~/Angular/Method.js"></script>
+    <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+    <script>
+        jQuery(document).ready(function () {
+            Main.init();
+            //Index.init();
+            FormValidator.init();
+            FormElements.init();
+            //TableData.init();
+        });
+    </script>
+
+    <!-- start: HEADER -->
+    @Html.Partial("_LoginPartial")
+    <!-- end: HEADER -->
+    <!-- start: MAIN CONTAINER -->
+    <div class="main-container">
+
+        <div class="navbar-content">
+            <!-- start: SIDEBAR -->
+            <div class="main-navigation navbar-collapse collapse">
+                <!-- start: MAIN MENU TOGGLER BUTTON -->
+                <div class="navigation-toggler">
+                    <i class="clip-chevron-left"></i>
+                    <i class="clip-chevron-right"></i>
+                </div>
+                <!-- end: MAIN MENU TOGGLER BUTTON -->
+                <!-- start: MAIN NAVIGATION MENU -->
+                <ul class="main-navigation-menu">
+
+                    @if (User.IsInRole("Management"))
+                    {
+                        <li>
+                            <a @*href="javascript:void(0)"*@>
+                                <i class="clip-screen"></i>
+                                <span class="title"> Request Management </span><i class="icon-arrow"></i>
+                                <span class="selected"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="/OrderManagementRequest/ManagementDataFetch">
+                                        <span class="title"> Request Form  </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+
+                    @if (User.IsInRole("Final Approval"))
+                    {
+                        <li>
+                            <a @*href="javascript:void(0)"*@>
+                                <i class="clip-screen"></i>
+                                <span class="title"> Request Management </span><i class="icon-arrow"></i>
+                                <span class="selected"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="/OrderManagementRequest/FinalApprovalDataFetch">
+                                        <span class="title"> Request Form  </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                    @if (User.IsInRole("Supervisor"))
+                    {
+                        <li>
+                            <a @*href="javascript:void(0)"*@>
+                                <i class="clip-screen"></i>
+                                <span class="title"> Request Management </span><i class="icon-arrow"></i>
+                                <span class="selected"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="/OrderManagementRequest/SupervisorDataFetch">
+                                        <span class="title"> Manage Requests </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>
+                            <a @*href="javascript:void(0)"*@>
+                                <i class="clip-screen"></i>
+                                <span class="title"> Admins </span><i class="icon-arrow"></i>
+                                <span class="selected"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="/User/AdminList">
+                                        <span class="title"> View Admins </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/User/AdminSetup">
+                                        <span class="title"> Add Admin </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a @*href="javascript:void(0)"*@>
+                                <i class="clip-screen"></i>
+                                <span class="title"> Vendors </span><i class="icon-arrow"></i>
+                                <span class="selected"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="/User/VendorList">
+                                        <span class="title"> View Vendors </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/User/VendorSetup">
+                                        <span class="title"> Add Vendor </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a @*href="javascript:void(0)"*@>
+                                <i class="clip-screen"></i>
+                                <span class="title"> Buyers </span><i class="icon-arrow"></i>
+                                <span class="selected"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="/User/BuyerList">
+                                        <span class="title"> View Buyers </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/User/BuyerSetup">
+                                        <span class="title"> Add Buyer</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a @*href="javascript:void(0)"*@>
+                                <i class="clip-screen"></i>
+                                <span class="title"> Requesters </span><i class="icon-arrow"></i>
+                                <span class="selected"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="/User/RequesterList">
+                                        <span class="title"> View Requesters </span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/User/RequesterSetup">
+                                        <span class="title"> Add Requesters </span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a @*href="javascript:void(0)"*@>
+                                <i class="clip-screen"></i>
+                                <span class="title"> Final Approval </span><i class="icon-arrow"></i>
+                                <span class="selected"></span>
+                            </a>
+                            <ul class="sub-menu">
+
+                                <li>
+                                    <a href="/User/FinalApprovalSetup">
+                                        <span class="title"> Add Final Approval </span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/User/FinalApprovalList">
+                                        <span class="title"> View Final Approval </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a @*href="javascript:void(0)"*@>
+                                <i class="clip-screen"></i>
+                                <span class="title"> Supervisor </span><i class="icon-arrow"></i>
+                                <span class="selected"></span>
+                            </a>
+
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="/User/SupervisorList">
+                                        <span class="title"> View Supervisors </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/User/SupervisorSetup">
+                                        <span class="title"> Add Supervisor </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a @*href="javascript:void(0)"*@>
+                                <i class="clip-screen"></i>
+                                <span class="title"> Management </span><i class="icon-arrow"></i>
+                                <span class="selected"></span>
+                            </a>
+
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="/User/ManagementList">
+                                        <span class="title"> View Management </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/User/ManagementSetup">
+                                        <span class="title"> Add Management </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a @*href="javascript:void(0)"*@>
+                                <i class="clip-screen"></i>
+                                <span class="title"> Categories </span><i class="icon-arrow"></i>
+                                <span class="selected"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="/Category/CategoryList">
+                                        <span class="title"> View Categories </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Category/CategorySetup">
+                                        <span class="title"> Add Category </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a>
+                                <i class="clip-screen"></i>
+                                <span class="title"> Info Management </span><i class="icon-arrow"></i>
+                                <span class="selected"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="/Location/Index">
+                                        <span class="title"> View Location </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/TermsOfService/Index">
+                                        <span class="title"> View TermsOfService </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Priority/Index">
+                                        <span class="title"> View Priority </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Department/Index">
+                                        <span class="title"> View Department </span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/PhoneExt/Index">
+                                        <span class="title"> View PhoneExt </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a @*href="javascript:void(0)"*@>
+                                <i class="clip-screen"></i>
+                                <span class="title"> Products </span><i class="icon-arrow"></i>
+                                <span class="selected"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="/Product/ProductList">
+                                        <span class="title"> View Products </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Product/ProductSetup">
+                                        <span class="title"> Add Product </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                    @if (!User.IsInRole("Supervisor") && !User.IsInRole("Management") && !User.IsInRole("Final Approval"))
+                    {
+                        <li>
+                            <a @*href="javascript:void(0)"*@>
+                                <i class="clip-screen"></i>
+                                <span class="title"> Requests </span><i class="icon-arrow"></i>
+                                <span class="selected"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li>
+                                        <a href="/OrderRequest/RequestList">
+                                            <span class="title"> View Requests </span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/OrderManagementRequest/RequesterRequestCompleteListDataFetch">
+                                            <span class="title"> Requester Request List </span>
+                                        </a>
+                                    </li>
+                                }
+                                @if (User.IsInRole("Vendor"))
+                                {
+                                    <li>
+                                        <a href="/OrderRequest/VendorRequestList">
+                                            <span class="title"> View Requests </span>
+                                        </a>
+                                    </li>
+                                }
+                                @if (User.IsInRole("Buyer"))
+                                {
+                                    <li>
+                                        <a href="/OrderRequest/BuyerPendingRequestList">
+                                            <span class="title"> View Requesters Requests </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/OrderRequest/BuyerRequestList">
+                                            <span class="title"> View Vendors Requests </span>
+                                        </a>
+                                    </li>
+                                }
+                                @if (User.IsInRole("Requester"))
+                                {
+                                    <li>
+                                        <a href="/OrderRequest/RequesterRequestSetup">
+                                            <span class="title"> Create Request For Buyer </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/OrderRequest/RequesterRequestList">
+                                            <span class="title"> View Requests </span>
+                                        </a>
+                                    </li>
+
+
+                                }
+
+
+
+                            </ul>
+                        </li>
+                    }
+                    @if (User.IsInRole("Requester"))
+                    {
+
+                        <li>
+                            <a @*href="javascript:void(0)"*@>
+                                <i class="clip-screen"></i>
+                                <span class="title">Manage Request</span><i class="icon-arrow"></i>
+                                <span class="selected"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="/OrderManagementRequest/RequesterDataFetch">
+                                        <span class="title"> View Request List </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/OrderManagementRequest/RequestSetup">
+                                        <span class="title"> Setup Request</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                    }
+                    @if (User.IsInRole("Admin") || User.IsInRole("Buyer"))
+                    {
+                        <li>
+                            <a>
+                                <i class="clip-screen"></i>
+                                <span class="title"> Reports </span><i class="icon-arrow"></i>
+                                <span class="selected"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="/Rpt/BuyerReport">
+                                        <span class="title"> Business Report </span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>
+                            <a @*href="javascript:void(0)"*@>
+                                <i class="clip-screen"></i>
+                                <span class="title"> Visitors </span><i class="icon-arrow"></i>
+                                <span class="selected"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="/Visitor/Index">
+                                        <span class="title"> Visitors List </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a @*href="javascript:void(0)"*@>
+                                <i class="clip-screen"></i>
+                                <span class="title"> Activity Log </span><i class="icon-arrow"></i>
+                                <span class="selected"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="/ActivityLog/Index">
+                                        <span class="title"> Log </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    }
+                </ul>
+                <!-- end: MAIN NAVIGATION MENU -->
+            </div>
+            <!-- end: SIDEBAR -->
+        </div>
+        <!-- start: PAGE -->
+        <div class="main-content">
+            <!-- /.modal -->
+            <!-- end: SPANEL CONFIGURATION MODAL FORM -->
+            <div class="container">
+                <!-- start: PAGE HEADER -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="page-header">
+                            <h1>@ViewBag.Title </h1>
+                        </div>
+                        <!-- end: PAGE TITLE & BREADCRUMB -->
+                    </div>
+                </div>
+                <!-- end: PAGE HEADER -->
+                <!-- start: PAGE  -->
+                <div id="divLoader" class="loading" style="display:none;"></div>
+                @RenderBody()
+                <!-- end: PAGE -->
+            </div>
+        </div>
+        <!-- end: PAGE -->
+
+    </div>
+    <!-- end: MAIN CONTAINER -->
+    <!-- start: FOOTER -->
+    <div class="footer clearfix">
+        @*<div class="footer-inner">
+                @DateTime.Now.Year &copy; Triotech
+            </div>
+            <div class="footer-items">
+                <span class="go-top"><i class="clip-chevron-up"></i></span>
+            </div>*@
+        <div class="row">
+            <div class="col-md-5 text-left">
+                @*<a href="https://www.agiletechstudio.com/" target="_blank">Powered by Agiletech Studio</a>*@
+            </div>
+            <div class="col-md-6 text-right">
+                <span>Copyright © @DateTime.Now.Year Triotech International All rights reserved.</span>
+            </div>
+            <div class="col-md-1">
+                <span class="go-top  pull-right"><i class="clip-chevron-up"></i></span>
+            </div>
+        </div>
+        <div class="footer-inner">
+
+        </div>
+        <div class="footer-items">
+            @*<span class="go-top"><i class="clip-chevron-up"></i></span>*@
+        </div>
+    </div>
+    <!-- end: FOOTER -->
+    <script>
+        $(document).ready(function () {
+            $('.sub-menu li>a').each(function () {
+                if ($(this).attr('href') == window.location.pathname) {
+                    $(this).parent().addClass('active');
+                    $(this).parent().parent().parent().addClass('active open');
+                }
+            });
+        });
+        var msg = "@TempData["SuccessMessage"]";
+        if (msg!='') {
+            SuccessMessage(msg);
+        }
+    </script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+
+</body>
+<!-- end: BODY -->
+</html>

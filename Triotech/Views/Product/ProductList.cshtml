@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Product List";
+}
+<script src="~/Angular/Product/ProductList.js"></script>
+<div class="row" ng-controller="ProductController" id="DivProductManagement">
+    <div class="col-md-12">
+
+        <div class="panel">
+            <div class="panel-body">
+                <form class="row mt1" ng-submit="ProductFetch()">
+                    <div class="col-sm-6">
+                        <div class="input-group">
+                            <input class="form-control" ng-model="ProductSearch.Search" placeholder="Search ...">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-primary col-xs-12"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div><!-- /input-group -->
+                    </div>
+                    <div class="col-sm-2">
+                        <select class="form-control select" ng-change="ProductFetch()" ng-model="ProductSearch.Active">
+                            <option value="">All Statuses</option>
+                            <option value="1">Active</option>
+                            <option value="0">Inactive</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <select class="form-control" ng-change="ProductFetch()" ng-model="ProductSearch.CategoryID">
+                            <option ng-value="0">select category</option>
+                            <option ng-repeat="c in lstCategories" ng-value="{{c.ID}}">{{c.Name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <a class="btn btn-primary pull-right" href="/Product/ProductSetup"><i class="fa fa-plus fa-fw"></i> Add Porduct</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="panel panel-default collapsed">
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table id="ProductTable" class="table table-striped table-hover dt-edit" style="margin-top:-1px !important; width: 100% !important">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th>Code</th>
+                                <th>CategoryName</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    @*@Html.Partial("_DeleteModal")*@
+</div>
+

@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Request List";
+}
+<script src="~/Angular/OrderRequest/AdminRequestList.js"></script>
+<div class="row" ng-controller="AdminController" id="DivAdminManagement">
+    <div class="col-md-12">
+
+        <div class="panel">
+            <div class="panel-body">
+                <form class="row mt1" ng-submit="AdminFetch()">
+                    <div class="col-sm-6">
+                        <div class="input-group">
+                            <input class="form-control" ng-model="AdminSearch.Search" placeholder="Search ...">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-primary col-xs-12"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div><!-- /input-group -->
+                    </div>
+                    <div class="col-sm-2">
+                            <select class="form-control select" id="requestddl" ng-change="AdminFetch()" ng-model="AdminSearch.StatusID">
+                                <option ng-value="0">All Status</option>
+                                <option ng-repeat="s in lstStatus" ng-value="{{s.ID}}">{{s.Name}}</option>
+                            </select>
+                        </div>
+                    <div class="col-sm-2">
+                        <select class="form-control select" ng-change="AdminFetch()" ng-model="AdminSearch.ActionID">
+                            <option ng-value="0">All Actions</option>
+                            <option ng-repeat="a in lstActions" ng-value="{{a.ID}}">{{a.Name}}</option>
+                        </select>
+                    </div>
+                    @*<div class="col-sm-2">
+                        <a class="btn btn-primary pull-right" href="/OrderRequest/RequestSetup"><i class="fa fa-plus fa-fw"></i> Create Request</a>
+                    </div>*@
+                </form>
+            </div>
+        </div>
+
+
+        <div class="panel panel-default collapsed">
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table id="AdminTable" class="table table-striped table-hover dt-edit" style="margin-top:-1px !important; width: 100% !important">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Date</th>
+                                <th>Buyer Name</th>
+                                <th>Vendor Name</th>
+                                <th>Requester Name</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                                
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    @*@Html.Partial("_DeleteModal")*@
+</div>
